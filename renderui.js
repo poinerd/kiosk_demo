@@ -27,7 +27,7 @@ function getStoreSetUpCard() {
 }
 
 function getUserKiosk(){
-    return `  <div class="kiosk">
+    return `<div class="kiosk">
             <div class="kiosk_head">
             <h1>${kioskDetails.kioskName}</h1>
                 <div></div>
@@ -42,7 +42,10 @@ function getUserKiosk(){
 
 function getNoKiosk(){
     return `
-            <h1>You do not have any kiosk</h1>`
+            <div class="kiosk">
+            <h1>You do not have any kiosk</h1>
+            <button class="btn" id="create_kiosk">  create a new kiosk now</button>
+            </div> `
 }
 
 
