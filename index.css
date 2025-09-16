@@ -1,0 +1,226 @@
+*{
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  padding: 0rem;
+  margin: 0rem;
+  box-sizing: border-box;
+
+}
+
+body{
+             overflow-x: hidden;
+}
+
+.nav_bar{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+.hero_section{
+    display: flex;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 2.1rem;
+    font-weight: 100;
+    padding: 4.8rem;
+    gap: 1.1rem;
+    background-color: #FAFFB8;
+    color: #0A2E36;
+    
+}
+
+
+
+
+
+.sections{
+
+    display: flex;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: #048A81;
+    color: #FAFFB8;
+    padding: 4.5rem 0rem 4.5rem 0rem;
+    
+
+
+}
+
+.sections h1{
+    font-weight: 500;
+    font-size: 2.5rem;
+}
+.btn{
+    padding: 1.9rem;
+    border-radius: 1.4rem;
+    background-color:  #F35B04;
+    color: white;
+    font-size: 1.1rem;
+    border-style: none;
+    font-weight: 800;
+    box-shadow: 5px 5px 0px black;
+}
+.btn:hover{
+       background-color:  #dd5404;
+      box-shadow: 10px 10px 0px black;
+}
+
+p{
+    font-size: 1.5rem;
+}
+
+
+#store_setup_card{
+   background-color: #FAFFB8;
+   padding: 5rem;
+   display: flex;
+   align-self: center;
+   width: 70%;
+   border-radius: 2rem;
+   margin-top: 0.5rem;
+   flex-direction: column;
+   gap: 1.5rem;
+    
+}
+
+#store_setup_card svg{
+    width: 2rem;
+    color: red;
+}
+
+#store_setup_card svg:hover{
+     color: black;
+}
+
+#store_setup_card input{
+    padding: 1rem;
+
+}
+
+
+
+#app_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    background-color: #ffffff;
+
+ 
+
+
+}
+
+
+#product_categories{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 200px;
+    background-color: aqua;
+    padding: 2rem;
+}
+
+.category{
+    background-color: transparent;
+    font-size: 1.6rem;
+    border: black 1px solid;
+    padding: 0.5rem;
+    border-radius: 1.4rem;
+}
+
+.category:hover{
+    background-color: black;
+    color: white;
+}
+
+.progress_bar{
+    width: 100%;
+    background-color: #ffffff;
+    height: 1rem;
+    border-radius: 2rem;
+}
+.progress_bar div{
+    background-color: black;
+    height: 1rem;
+    border-radius: 2rem;
+}
+
+
+
+
+@media (max-width:375px) {
+
+    
+.hero_section{
+
+    font-size: 0.89rem;
+    padding: 1.5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    font-weight: 900;
+
+    
+}
+
+.btn{
+    padding: 1.2rem;
+    border-radius: 1.4rem;
+    font-size: 0.79rem;
+    width: 100%;
+ 
+}
+
+
+
+.sections{
+
+    padding: 1.2rem;
+    gap:1rem
+
+
+}
+
+     .sections h1{
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+p{
+    font-size: 0.79rem;
+}
+
+
+#store_setup_card{
+   width: 90%;
+   border-radius: 2rem;
+   margin-top: 0.5rem;
+   flex-direction: column;
+   gap: 1rem;
+   padding: 2rem;
+
+    
+}
+
+#store_setup_card h1{
+   font-size: 1.5rem;
+    
+}
+ 
+
+
+
+}
+
