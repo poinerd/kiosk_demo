@@ -15,8 +15,9 @@ body{
 .nav_bar{
     padding: 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    background-color: transparent;
 
 
 }
