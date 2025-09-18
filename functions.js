@@ -21,7 +21,8 @@ function addProductToKiosk(name, price,){
 }
 
 function setKioskDetails(userResponse){
-    userResponse.splice(2,2)
+    userResponse.splice(2,1)
+    console.log(userResponse)
 
     // for(let i =0; i< userResponse.length; i++){
 
@@ -33,8 +34,8 @@ function setKioskDetails(userResponse){
     // console.log(kioskDetails)
 
     kioskDetails.kioskName = userResponse[0]
-    kioskDetails.kioskDescription = userResponse[1]
-    kioskDetails.kioskPhone = userResponse[2]
+    kioskDetails.kioskDescription = userResponse[2]
+    kioskDetails.kioskPhone = userResponse[3]
 
     console.log(kioskDetails)
 

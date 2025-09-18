@@ -2,6 +2,7 @@
 
 
 let counter = 0
+let iskioskDescription = false
 let userResponses = []
 
 const storeSetUpQuestions = [
@@ -15,7 +16,7 @@ const storeSetUpQuestions = [
     categories: ['Technology', 'Art', 'Sloftware', 'Hard']
   },
   {
-    question: 'What are you selling?',
+    question: 'What do you sell?',
     placeholder: 'enter the kind of products',
     buttonVisibility: 'block',
     categoriesVisibility: 'none',
@@ -25,7 +26,7 @@ const storeSetUpQuestions = [
   },
 
     {
-    question: 'What Category does your product fall into? (pick one or two)',
+    question: 'What category does your product fall into? (pick one or two)',
     placeholder: 'enter the kind of products',
     buttonVisibility: 'block',
     categoriesVisibility: 'block',
@@ -35,7 +36,7 @@ const storeSetUpQuestions = [
   },
 
      {
-    question: 'write a description of your kiosk, Let buyers know about you',
+    question: 'Write a description of your kiosk, <br/> Let buyers know about you and your business when they see your kiosk.',
     placeholder: 'enter the kind of products',
     buttonVisibility: 'block',
     categoriesVisibility: 'none',
@@ -45,7 +46,7 @@ const storeSetUpQuestions = [
   },
 
    {
-    question: 'attach a business phone',
+    question: 'Input your business phone buyers can contact you through',
     placeholder: 'enter the your business phone number',
     buttonVisibility: 'block',
     categoriesVisibility: 'none',
@@ -76,6 +77,3 @@ let kioskDetails ={
     kioskPhone:'',
     // kioskproducts:kioskProducts
 }
-
-
- 
