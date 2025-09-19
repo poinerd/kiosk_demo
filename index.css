@@ -18,8 +18,13 @@ body{
     justify-content: space-around;
     align-items: center;
     background-color: transparent;
+    font-size: 3.9rem;
 
 
+}
+
+.nav_bar img{
+    width: 150px;
 }
 
 
@@ -306,6 +311,7 @@ h1{
     justify-content: center;
     align-items: center;
     gap:1rem;
+    background-color: #dd5404;
  
 
 
@@ -456,23 +462,56 @@ color: white;
 
 @media (max-width:375px) {
 
-    
-.hero_section{
 
-    font-size: 0.89rem;
-    padding: 1.5rem;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    font-weight: 900;
+.nav_bar{
+    padding: 0.5rem;
+    font-size: 0.1rem;
 
-    
+
+}
+.nav_bar img{
+    width: 100px;
 }
 
-.btn{
-    padding: 1.2rem;
-    border-radius: 1.4rem;
-    font-size: 0.79rem;
+.nav_bar ul li{
+    font-size: 1rem;
+}
+
+.hero_section{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    gap: 1.1rem;
+    background-color: #b8fdff;    
+}
+
+#input_email{
+
     width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    gap: 0.8rem;
+
+}
+#input_email > input{
+    text-align: left;
+  border-radius: 0.5rem;
+  padding: 0.1rem;
+  border-style: none;
+
+}
+
+
+
+.btn{
+    padding: 0.9rem;
+    border-radius: 1.4rem;
+    font-size: 1rem;
+    font-size: 0.9rem;
+ 
  
 }
 
@@ -482,7 +521,7 @@ color: white;
 
 .sections{
 
-    padding: 1.2rem;
+    padding: 1.9rem;
     gap:1rem
 
 
@@ -490,19 +529,20 @@ color: white;
 
      .sections h1{
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 p{
-    font-size: 0.79rem;
+    font-size: 1rem;
 }
 
 
 #store_setup_card{
    width: 90%;
    border-radius: 2rem;
-   margin-top: 0.5rem;
+   margin-top: 2rem;
    flex-direction: column;
+  align-self: center;
    gap: 1rem;
    padding: 2rem;
 
@@ -514,6 +554,71 @@ p{
     
 }
  
+.kiosk_options{
+    display: none;
+  
+
+
+}
+
+
+.btn_medium{
+
+    width: 30%;
+    left: 64%;
+    top: 80%;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+  
+}
+
+#add_a_product_card{
+       
+       border: 1px black solid;
+       background-color: white;
+       width: 68%;
+       font-size: 0.9rem;
+       display: flex;
+       padding: 2rem;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       position: fixed;
+       left: 17%;
+       top: 25%
+   
+}
+
+#add_a_product_card input{
+        font-size: 0.6rem;
+    
+   
+}
+
+.btn{
+    padding: 1rem;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 3px 3px 0px black;
+}
+
+.btn:hover{
+       background-color:  #dd5404;
+      box-shadow: 5px 5px 0px black;
+}
+
+.kiosk_head{
+
+    justify-content: space-around;
+    padding: 0.4rem;
+    border: 1px black solid;
+    height: 3.3rem;
+ 
+}
+
 
 
 
