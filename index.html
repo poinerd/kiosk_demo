@@ -16,7 +16,9 @@
 <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <nav class="nav_bar">
+    <div id="whole_container">
+
+        <nav class="nav_bar">
         <img src="./assets/Kiosk.png" width= '150px' id="kiosk_logo">
         <ul>
             <li id="my_kiosk" >My Kiosk</li>
@@ -24,22 +26,23 @@
     </nav>
 
     <div id="app_container">
-
-
-     
-
-    
+        
     <div class="all_sections" id="all_sections">
     <div class="hero_section">
-    <h1 id="hello">Create a mini online store <br/> in few minutes and <br/> <span style="color: #0A2E36; font-weight: 900;"> start selling!</span></h1>
-    <button class="btn" id="create_kiosk"> Create a store now</button>
+    <h1 style="font-size: 3.9rem;" id="hello">Create a mini online store <br/> in few minutes and <br/> <span  id="start_selling"  style="font-weight: 900;"> Start selling!</span></h1>
+
+    <form id="input_email">
+        <input placeholder="Enter your email" type="email" required>
+        <button class="btn" id="create_kiosk" type="submit" > create your kiosk now</button>
+    </form>
+   
     </div>
 
 
-     <div class="sections" >
-     <h1> Want to sell a product online?</h1>
-     <p> Create an online store, add products, and price, launch in minutes!<br> Yeah, it's that easy.</p>
-     </div>
+        <div class="sections" >
+        <h1> Want to sell a product online?</h1>
+        <p> Create an online store, add products, and price, launch in minutes!<br> Yeah, it's that easy.</p>
+        </div>
 
 
     <div class="sections">
@@ -47,10 +50,12 @@
     <p>Whether you’re a student, running a side hustle, or growing a small business, <br/>
     Kiosk makes it easy to set up a shop lightening fast!</p>
     </div>
-
     </div>
     
     </div>
+
+    </div>
+    
 
 
 <script src="data.js"></script>

@@ -21,6 +21,23 @@ body{
 
 
 }
+
+
+#input_email{
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    gap: 0.8rem;
+}
+#input_email > input{
+    text-align: left;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  border-style: none;
+
+}
 .nav_bar ul li{
     padding: 0.71rem;
     font-size: 1.5rem;
@@ -44,12 +61,12 @@ body{
     align-items: center;
     flex-direction: column;
     text-align: center;
-    font-size: 2.1rem;
-    font-weight: 100;
+    font-size: 30rem;
+    font-weight: 90;
     padding: 4.8rem;
     gap: 1.1rem;
-    background-color: #FAFFB8;
-    color: #0A2E36;
+    background-color: #b8fdff; 
+    color: #000000;
     
 }
 
@@ -65,8 +82,8 @@ body{
     align-items: center;
     flex-direction: column;
     text-align: center;
-    background-color: #048A81;
-    color: #FAFFB8;
+    background-color: #025f59;
+    color: #ffffff;
     padding: 4.5rem 0rem 4.5rem 0rem;
     
 
@@ -78,6 +95,22 @@ body{
     font-size: 2.5rem;
 }
 .btn{
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color:  #F35B04;
+    color: white;
+    font-size: 1rem;
+    border-style: none;
+    font-weight: 800;
+    box-shadow: 5px 5px 0px black;
+}
+.btn:hover{
+       background-color:  #dd5404;
+      box-shadow: 10px 10px 0px black;
+}
+
+
+.btn_medium{
     padding: 1rem;
     border-radius: 1.4rem;
     background-color:  #F35B04;
@@ -86,10 +119,11 @@ body{
     border-style: none;
     font-weight: 800;
     box-shadow: 5px 5px 0px black;
-}
-.btn:hover{
-       background-color:  #dd5404;
-      box-shadow: 10px 10px 0px black;
+    width: 10%;
+     position: fixed;
+     left: 85%;
+     top: 80%
+  
 }
 
 p{
@@ -101,6 +135,8 @@ h1{
 }
 
 
+
+
 #store_setup_card{
    background-color: #FAFFB8;
    padding: 3rem;
@@ -108,7 +144,7 @@ h1{
    align-self: center;
    width: 60%;
    border-radius: 2rem;
-   margin-top: 2rem;
+   margin-top: 2.9rem;
    flex-direction: column;
    gap: 1.5rem;
    border: 1px black solid;
@@ -142,8 +178,10 @@ h1{
     flex-direction: column;
     height: 100vh;
     padding: 0px;
-/*   
-    background-image: url('./assets/bg.png');
+    background-color: #b8fdff;
+
+  
+    /* background-image: url('./assets/illustration1.jpg');
     background-size: cover;     
    background-repeat: no-repeat; 
   background-position: center; */
@@ -155,11 +193,10 @@ h1{
 }
 
 
-#product_categories{
+.produc_categories{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 200px;
+    gap: 900px;
     background-color: aqua;
     padding: 2rem;
 }
@@ -170,6 +207,10 @@ h1{
     border: black 1px solid;
     padding: 0.5rem;
     border-radius: 1.4rem;
+    width: 2rem;
+    display: inline;
+    margin: 1rem;
+    margin-top: 9rem;
 }
 
 .category:hover{
@@ -200,19 +241,45 @@ h1{
 
 
 }
+
 #cancel_store_creation:hover{
-      box-shadow: 3px 3px 0px black
+      box-shadow: 3px 3px 0px black;
+      color: white
 
 
 }
 
+#cancel_add_product{
+    width: 2rem;
+    border-radius: 1rem;
+    border-style: none;
+    background-color: black;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    color: white;
+
+
+}
+#cancel_add_product:hover{
+      box-shadow: 3px 3px 0px black;
+      color:white
+
+
+}
+.empty_state{
+    align-self: center;
+    margin-top: 3rem;
+}
 .kiosk{
     width:100%;
+    height: 100vh;
     flex-direction: column;
     background-color:white;
     height: 100vh;
     display: flex;
-    gap:1.5rem
+    position: relative;
+
 
 }
 
@@ -222,10 +289,9 @@ h1{
     flex-direction: row;
     width: 100%;
     justify-content: space-around;
-   
-    padding: 0.1rem;
+    padding: 0.9rem;
     border: 1px black solid;
-
+    height: 3.3rem;
 }
 .kiosk_id{
     display: flex;
@@ -240,6 +306,7 @@ h1{
     justify-content: center;
     align-items: center;
     gap:1rem;
+ 
 
 
 }
@@ -250,6 +317,16 @@ h1{
     justify-content: center;
     font-size: 1.3rem;
     gap: 0.2rem;
+    width:8rem;
+     
+   
+}
+
+.kiosk_tab:hover{
+    background-color:  #FAFFB8;
+    padding: 0.4rem;
+    border: 1px solid black;
+
 }
 
 .kiosk_id{
@@ -258,21 +335,17 @@ h1{
 }
 
 .kiosk_image{
- width: 3rem;
- height:3rem;
+ width: 2rem;
+ height:2rem;
  border-radius: 50%;
  background-color: red;
 
 }
 
-
 .kiosk_head svg{
     width: 1.3rem;
 }
 
-.kiosk_head svg:hover{
-    color:red
-}
 
 .kiosk_description_card{
     background-color: black;
@@ -282,8 +355,101 @@ h1{
     padding:1.5rem;
     gap:0.5rem
 }
-.add_a_product_button{
+#add_a_product_button{
+    background-color: #025f59;
 
+}
+
+#add_a_product_card{
+
+       border: 1px black solid;
+       width: 30%;
+       background-color: transparent;
+       display: flex;
+       padding: 2rem;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       position: fixed;
+       left: 65%;
+       top: 35%
+   
+}
+
+#add_a_product_card div{
+    display: flex;
+    flex-direction: column;
+    gap:0.3rem;
+    margin-top: 0.5rem;
+
+
+   
+}
+
+#add_a_product_card button svg{
+color: white;
+      
+
+   
+}
+
+
+#add_a_product_card div input{
+    padding: 0.4rem;
+   
+}
+
+.products_list{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 2rem ;
+    gap: 0.5rem;
+    
+
+}
+
+.product_card{
+    background-color: rgb(246, 245, 245);
+    padding: 1rem;
+    width: 18rem;
+    min-height: 23rem;
+    margin-bottom: 0.9rem;
+
+
+
+}
+
+.product_card:hover{
+
+    background-color: white;
+   border: 1px solid black;
+      box-shadow: 10px 10px 0px black
+}
+
+#product_image{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 60%;
+    margin-bottom: 0.8rem;
+}
+#remark{
+    display: none;
+    font-size: 1rem;
+    padding: 0.4rem;
+    margin-bottom: 0.5rem;
+    background-color: rgb(255, 157, 157);
+}
+
+#product_edit_options{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.8rem;
+}
+
+#product_edit_options svg{
+    width: 1.4rem;
 }
 
 
@@ -309,6 +475,8 @@ h1{
     width: 100%;
  
 }
+
+
 
 
 
