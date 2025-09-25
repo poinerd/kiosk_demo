@@ -11,6 +11,9 @@ let kioskDescriptionDown = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" 
 
 function getStoreSetUpCard() {
   return `  
+    <div id="store_setup_page">
+    <div id="animation_card"> This is the container where the animation stays</div>
+
     <div id="store_setup_card">
       <button id = "cancel_store_creation" ><svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -21,14 +24,16 @@ function getStoreSetUpCard() {
       </div>
       <h1>${storeSetUpQuestions[counter].question}</h1>
 
-      <div id="product_categories" class="produc_categories" style="display:${storeSetUpQuestions[counter].categoriesVisibility}">
+<div id="product_categories" 
+     class="product_categories" 
+     style="display:${storeSetUpQuestions[counter].categoriesVisibility}">
 
-      ${storeSetUpQuestions[counter].categories.map((category)=>{
-        return `
-        <div id ="user_store_creation_option"  class="category">${category} </div>`
-      }).join('')}
-      
-      </div>
+  ${storeSetUpQuestions[counter].categories.map((category,index) => `
+    <div id=${index} class="category" id='kiosk_category'>${category}</div>
+  `).join("")}
+
+</div>
+
 
       <input 
       
@@ -39,7 +44,9 @@ function getStoreSetUpCard() {
         style="display:${storeSetUpQuestions[counter].placeholderVisibility}" 
         placeholder="${storeSetUpQuestions[counter].placeholder}"
       />
-      <button type="submit" id="next_question_button" class="btn" style="display:${storeSetUpQuestions[counter].buttonVisibility}">Next Question</button>
+      <p id='input_remark' style="font-size: 0.9rem; display:none"></p>
+      <button type="submit" id="next_question_button" class="btn" style="display:${storeSetUpQuestions[counter].buttonVisibility}">${storeSetUpQuestions[counter].buttonText}</button>
+    </div>
     </div>`
 }
 
@@ -59,7 +66,7 @@ function getUserKiosk(){
             </div>
             
             <div class="kiosk_options">
-                        <div class="kiosk_tab">
+                        <div class="kiosk_tab" id="kiosk_products">
    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
 </svg>
@@ -75,7 +82,7 @@ Orders</div>
   <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
 </svg>
 Settings</div>
-              <div class="kiosk_tab" ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <div class="kiosk_tab" id="share_link" ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
 </svg>
 Share</div>
@@ -114,7 +121,7 @@ Share</div>
             <div id="product_image"><img src=${product.productImage} width="100%" height="100%"/></div>
             <p>${product.productName}</p>
             <p style="font-size: 1.1rem; ">${'#'+ product.productPrice}</p>
-            <p style="font-size: 0.9rem">${'Number in stock: '+product.productPrice}</p>
+            <p style="font-size: 0.9rem">${'Number in stock: '+ product.noInStock}</p>
 
             </div>
             `
@@ -180,16 +187,55 @@ Share</div>
 
 
 function getSettingsPage(){
-  return `<div>
+  return `<div id="settings_page">
+
+  <div>
+
+    <svg  id="go_back_button" class= "go_back_button" style ="width:1rem"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+  </svg>
+
   <h1> Settings </h1>
+  
+  <div id='side_options' >
+  <button>Profile Settings</button>
+  <button>Customizations</button>
+  <button>Profile Settings</button>
+  </div>
+
+
+  </div>
+
+  <div id='page_content'> desc is here</div>
+
+
+
   </div>`
 }
+
+
+function getOrdersPage(){
+  return `<div>
+  <svg  id="go_back_button" style ="width:1rem"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+  </svg>
+
+  <h1> Orders </h1>
+
+
+
+
+  </div>`
+}
+
+
+
 
 function getNoKiosk(){
     return `
             <div class="kiosk">
             <h1>You do not have any kiosk</h1>
-            <button class="btn" id="create_kiosk">  create a new kiosk now</button>
+            <button class="btn" id="create_kiosk_2">  create a new kiosk now</button>
             </div> `
 }
 

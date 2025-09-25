@@ -4,14 +4,11 @@ function createKiosk(name, description, email, phone, products=[]){
     kioskDetails.kioskName = name
     // kioskDetails.kioskCategory = category
     kioskDetails.kioskDescription = description
-    // kioskDetails.kioskEmail = email
+    kioskDetails.kioskEmail = userEmail.value.trim() 
     kioskDetails.kioskPhone = phone
     kioskDetails.kioskproducts = products
 
 }
-
-
-
 
 function setKioskDetails(userResponse){
     userResponse.splice(2,1)
@@ -21,7 +18,7 @@ function setKioskDetails(userResponse){
     kioskDetails.kioskDescription = userResponse[2]
     kioskDetails.kioskPhone = userResponse[3]
     kioskDetails.KioskLogo = userResponses[5]
-
+    kioskDetails.kioskEmail = userEmail.value.trim()
     console.log(kioskDetails)
 
 }
@@ -32,7 +29,7 @@ function renderContent(child, container) {
 }
 
 function goHome(){
-      appContainer.replaceChildren(allSections)
+      window.location.href = "/"
 }
 
 function renderQuestions(){
@@ -41,25 +38,25 @@ function renderQuestions(){
 
 
 function goToNextQuestion(){
-  if(counter > 5){
+
+  if(counter === 10){
        setKioskDetails(userResponses)
        checkProductList()
        console.log(isProductlistEmpty)
+       hasUserCreatedKiosk = true
+       saveKioskData(STORAGE_KEY, [kioskDetails, hasUserCreatedKiosk])
        renderContent(getUserKiosk(), appContainer)     
   }
   else{
-
-      renderContent(getStoreSetUpCard(),appContainer)
       counter+=1
+      renderContent(getStoreSetUpCard(),appContainer)
       console.log(userResponses)
    
   }
 }
 
-
 function addAProductToKiosk(name, price, number, remark){
-
-
+    
     if( name == '' || price =='' || number== ''){
         remark.style.display='block'
         remark.style.backgroundColor='rgb(255, 157, 157)'
@@ -81,7 +78,8 @@ function addAProductToKiosk(name, price, number, remark){
 
     
     kioskProducts.push(newProduct)
-    currentProductImage - null
+
+    currentProductImage = null
     checkProductList()
     remark.style.display='block'
     remark.style.backgroundColor='#b8fdff'
@@ -94,6 +92,32 @@ function addAProductToKiosk(name, price, number, remark){
 
     }   
     
+}
+function checkInputField(inputField){
+    if (inputField.value.trim() === ""){
+        return true
+    }else{
+        return false
+    }
+}
+
+function displayContentForTime(container, text, time){
+    container.style.display = 'block'
+    container.innerHTML = text
+
+    setTimeout(()=>{
+        container.style.display = 'none'
+    }, time)
+
+}
+
+function confirmPassword(initial, confirmation){
+    if(initial===confirmation){
+        return true
+    }
+    else{
+        return false
+    }
 }
 
 
@@ -115,3 +139,23 @@ function deleteAProduct(productId){
    checkProductList()
    renderContent(getUserKiosk(), appContainer)
 }
+
+
+function saveKioskData(key, data){
+    localStorage.setItem(key, JSON.stringify(data))
+}
+
+function loadKioskData(key,){
+    localStorage.getItem(key)
+    const RAW = localStorage.getItem(STORAGE_KEY);
+  if (RAW) {
+    try {
+      let retrievedData = JSON.parse(RAW);
+      kioskDetails = retrievedData[0]
+      hasUserCreatedKiosk= retrievedData[1]
+
+    } catch (e) {
+      console.error("Error parsing data from localStorage", e);
+   
+    }
+}}
