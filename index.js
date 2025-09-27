@@ -119,20 +119,19 @@ wholeContainer.addEventListener('click', (e) => {
      renderContent(getUserKiosk(), appContainer)  
   }
 
-    if (e.target.id === 'kiosk_settings') {
-     renderContent(getSettingsPage(), appContainer)
-     
-  }
+ 
 
       if (e.target.id === 'kiosk_products') {
      renderContent(getUserKiosk(), appContainer)
      
   }
 
-    if (e.target.id === 'kiosk_orders') {
-     renderContent(getOrdersPage(), appContainer)
+     if (e.target.id === 'toggle_theme_container') {
+     isLightMode =!isLightMode
+     renderContent(getUserKiosk(), appContainer)
      
   }
+
     if (e.target.id === 'my_kiosk') {
   
       if(hasUserCreatedKiosk == true){
