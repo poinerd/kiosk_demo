@@ -58,9 +58,9 @@ function getUserKiosk(){
             <div class=${isLightMode? 'kiosk_head': 'kiosk_head_dark_mode'} >
             
             <div class="kiosk_id">
-            <div>
+            <div  >
             <div class = "kiosk_image" ><img src=${kioskDetails.KioskLogo} width="100%" height="100%"/></div>
-            <h1>${kioskDetails.kioskName}</h1>
+            <h1 style="display:block">${kioskDetails.kioskName}</h1>
             </div>
             
             <div>  
@@ -129,7 +129,7 @@ function getUserKiosk(){
 
             </div>
 
-
+             <div class='product_card_bg' id='product_card_bg' style="display: ${isAddProductCard? 'block': 'none'}">
             <form id="add_a_product_card" style="display: ${isAddProductCard? 'block': 'none'}">
              <p id="remark" >Hello wolrd</p>
           <svg  id = "cancel_add_product"   xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -176,6 +176,7 @@ function getUserKiosk(){
 
             
             </form>
+             </div>
            
 
             <button class="btn_medium" id="add_product_button" > + Add a product </button>
