@@ -57,28 +57,31 @@ function getUserKiosk(){
     return `<div class=${isLightMode? 'kiosk': 'kiosk_dark_mode'} id="kiosk" >
             <div class=${isLightMode? 'kiosk_head': 'kiosk_head_dark_mode'} >
             
-           
             <div class="kiosk_id">
+            <div>
             <div class = "kiosk_image" ><img src=${kioskDetails.KioskLogo} width="100%" height="100%"/></div>
             <h1>${kioskDetails.kioskName}</h1>
-            <div class="kiosk_tab" id="category_card">${kioskDetails.kioskCategory}</div>
-            <button id="open_description_button" style="border-radius:1.5rem; padding:1rem; border-style:none; background-color:transparent"> ${iskioskDescription ? kioskDescriptionUp : kioskDescriptionDown} </button>
-
-
             </div>
             
+            <div>  
+            <div id="category_card">${kioskDetails.kioskCategory}</div>
+            <button id="open_description_button" style="border-radius:1.5rem; padding:1rem; border-style:none; background-color:transparent"> ${iskioskDescription ? kioskDescriptionUp : kioskDescriptionDown} </button>
+            </div>
+            </div>
+           
+            
             <div class="kiosk_options">
-                        <div class="kiosk_tab" id="kiosk_products">
-   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-</svg>
 
-Products (${kioskProducts.length}) </div>
-              <div class="kiosk_tab"  >
+              <div class="kiosk_tab" id="kiosk_products">
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                   </svg>(${kioskProducts.length})
+              </div>
+
+              <div class="kiosk_tab">
               <button id="toggle_theme_container">  ${isLightMode? lightMode: darkMode}</button>
-</div>
+              </div>
              
-              
             </div>
 
             </div>

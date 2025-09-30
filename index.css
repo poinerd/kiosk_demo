@@ -354,7 +354,7 @@ h1{
     flex-direction: row;
     width: 100%;
     justify-content: space-around;
-    padding: 1rem;
+    padding: 2rem;
     border: 1px black solid;
     height: 3.3rem;
     background-color: white;
@@ -365,7 +365,7 @@ h1{
     flex-direction: row;
     width: 100%;
     justify-content: space-around;
-    padding: 1rem;
+    padding: 2rem;
     border: 1px black solid;
     height: 3.3rem;
        background-color:  #021736;
@@ -379,14 +379,17 @@ h1{
     align-items: center;
 }
 
+.kiosk_id div{
+    display: flex;
+    flex-direction: row;
+  
+}
+
 .kiosk_options{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-
- 
 
 
 }
@@ -397,10 +400,8 @@ h1{
     justify-content: center;
     font-size: 1.3rem;
     gap: 0.2rem;
-    padding:0.5rem
-
- 
-   
+    padding:0.5rem ; 
+    
 }
 
 #toggle_theme{
@@ -550,7 +551,21 @@ color: white;
      border: 1px solid #004b69; ;
      border-radius: 1.5rem;
      font-size: 1.1rem;
+     
+
+}
+
+#category_card{
+     background-color: #dedcff;
+     border: 1px solid #004b69; ;
+     border-radius: 1.5rem;
+     font-size: 1.1rem;
      margin-left: 1rem;
+     display: flex;
+     justify-content: center;
+     padding: 1rem;
+     align-items: center;
+ 
 
 }
 
@@ -742,12 +757,9 @@ p{
     
 }
  
-.kiosk_options{
-    display: none;
-  
 
 
-}
+
 
 
 .btn_medium{
@@ -802,22 +814,34 @@ p{
 
 .kiosk_head{
 
-    justify-content: space-around;
-    padding: 0.4rem;
-    border: 1px black solid;
-    height: 3.3rem;
+    justify-content: center;
+   
  
+}
+
+.kiosk_id{
+    display: flex;
+    flex-direction: row;
+  
 }
 
 .kiosk_id h1{
     font-size: 1rem;
 }
 
-
-#category_card{
-       font-size: 0.8rem;
-
+.kiosk_id div{
+    display: flex;
+    flex-direction: row;
+justify-content: center;
+align-items: center;
+    padding: 0px;
+  
 }
+
+
+
+
+
 
 .kiosk_image{
  width: 1rem;
@@ -847,6 +871,53 @@ p{
 .kiosk_info{
     font-size: 0.8rem;
 }
+
+.kiosk_head{
+
+    justify-content: center;
+    padding: 2rem 1rem 2rem 1rem;
+    border: 1px black solid;
+
+
+
+ 
+}
+
+#category_card{
+     background-color: #dedcff;
+     border: 1px solid #004b69; ;
+     border-radius: 0.5rem;
+     font-size: 0.8rem;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 0.3rem;
+     margin: 0rem;
+     height: 20%;
+ 
+
+}
+
+.kiosk_tab{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    gap: 0.1rem;
+    padding:0.1rem  
+}
+
+
+.kiosk_options{
+    gap: 0.5rem;
+
+}
+
+
+
+
+
 
 
 
