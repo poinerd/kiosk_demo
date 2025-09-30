@@ -9,11 +9,13 @@ let kioskDescriptionDown = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" 
 
 
 
-function getStoreSetUpCard() {
+function getStoreSetUpCard(){
   return `  
     <div id="store_setup_page">
-    <div id="animation_card"> This is the container where the animation stays</div>
-
+    <div id="animation_card"> 
+    <img src="../assets/nokiosk.png" width="300px" id="no_kiosk" >
+    </div>
+     
     <div id="store_setup_card">
       <button id = "cancel_store_creation" ><svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -52,14 +54,14 @@ function getStoreSetUpCard() {
 
 function getUserKiosk(){
   
-    return `<div class="kiosk" id="kiosk" >
-            <div class="kiosk_head">
+    return `<div class=${isLightMode? 'kiosk': 'kiosk_dark_mode'} id="kiosk" >
+            <div class=${isLightMode? 'kiosk_head': 'kiosk_head_dark_mode'} >
             
            
             <div class="kiosk_id">
             <div class = "kiosk_image" ><img src=${kioskDetails.KioskLogo} width="100%" height="100%"/></div>
             <h1>${kioskDetails.kioskName}</h1>
-            <div class="kiosk_tab">category</div>
+            <div class="kiosk_tab" id="category_card">${kioskDetails.kioskCategory}</div>
             <button id="open_description_button" style="border-radius:1.5rem; padding:1rem; border-style:none; background-color:transparent"> ${iskioskDescription ? kioskDescriptionUp : kioskDescriptionDown} </button>
 
 
@@ -81,10 +83,12 @@ Products (${kioskProducts.length}) </div>
 
             </div>
 
-            <div class="kiosk_description_card"   style ="display: ${iskioskDescription? 'block':'none'}">
-               <p style="font-size: 1rem"> Sells ${kioskDetails.kioskDescription}</p>
-               <p style="font-size: 1.5rem">${kioskDetails.kioskDescription}</p>
-               <p style="font-size: 1rem">${kioskDetails.kioskPhone}</p>
+            <div class="kiosk_description_card"  style ="display: ${iskioskDescription? 'block':'none'}">
+               <p class="kiosk_info"> Sells ${kioskDetails.kioskDescription}</p>
+               <p  class="kiosk_info">${kioskDetails.kioskDescription}</p>
+               <div class="kiosk_info_card">
+                    <p  class="kiosk_contacts" >${kioskDetails.kioskPhone}</p>
+                    <p  class="kiosk_contacts" >${kioskDetails.kioskEmail}</p></div>
             </div>
 
 
@@ -111,7 +115,7 @@ Products (${kioskProducts.length}) </div>
             </div>
             <div id="product_image"><img src=${product.productImage} width="100%" height="100%"/></div>
             <p>${product.productName}</p>
-            <p style="font-size: 1.1rem; ">${'#'+ product.productPrice}</p>
+            <p style="font-size: 1.1rem; ">${'₦'+ product.productPrice}</p>
             <p style="font-size: 0.9rem">${'Number in stock: '+ product.noInStock}</p>
 
             </div>
@@ -153,7 +157,7 @@ Products (${kioskProducts.length}) </div>
             
 
             <div>
-            <label > Prcie per unit </label>
+            <label > Price Per Unit (₦) </label>
             <input id="product_price"  type="number" placeholder="enter the price" required/>
             </div>
             
@@ -179,31 +183,23 @@ Products (${kioskProducts.length}) </div>
 
 function getSettingsPage(){
   return `<div id="settings_page">
-
   <div>
-
     <svg  id="go_back_button" class= "go_back_button" style ="width:1rem"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-  </svg>
+    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+    </svg>
+    <h1> Settings </h1>
 
-  <h1> Settings </h1>
-  
   <div id='side_options' >
   <button>Profile Settings</button>
   <button>Customizations</button>
   <button>Profile Settings</button>
   </div>
-
-
+  
   </div>
 
   <div id='page_content'> desc is here</div>
-
-
-
   </div>`
 }
-
 
 function getOrdersPage(){
   return `<div>
@@ -225,8 +221,9 @@ function getOrdersPage(){
 function getNoKiosk(){
     return `
             <div class="kiosk">
-            <h1>You do not have any kiosk</h1>
-            <button class="btn" id="create_kiosk_2">  create a new kiosk now</button>
+            <img src="../assets/nokiosk.png" width="300px" id="no_kiosk" >
+            <h1 style="text-align:center; margin-bottom:1rem">You do not have any kiosks yet</h1>
+            <button class="btn" id="create_kiosk_2" style="width: 20%">  Create a new kiosk now</button>
             </div> `
 }
 

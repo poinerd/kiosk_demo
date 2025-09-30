@@ -15,7 +15,6 @@ wholeContainer.addEventListener('click', (e) => {
   if (e.target.id == 'kiosk_logo') {
     appContainer.innerHTML =''
     appContainer.appendChild(allSections)
-
   }
   
   if (e.target.id === 'create_kiosk') {
@@ -46,8 +45,25 @@ wholeContainer.addEventListener('click', (e) => {
     console.log(counter)
     const userStoreCreationInput = document.getElementById('user_store_creation_input')
     const remark = document.getElementById('input_remark')
-  
     
+  if(counter === 9 ){
+       setKioskDetails(userResponses)
+       checkProductList()
+       console.log(isProductlistEmpty)
+       hasUserCreatedKiosk = true
+       saveKioskData(STORAGE_KEY, [kioskDetails, hasUserCreatedKiosk])
+       renderContent(getUserKiosk(), appContainer)     
+     }
+    
+      if(counter === 7 && (confirmPassword(userResponses[-1],userResponses[-2]) === false)){
+          
+        userResponses.pop()
+        displayContentForTime(remark, "Your passwords don't match!", 1000)
+        counter = 6
+        renderContent(userStoreCreationInput(), appContainer)
+          
+     }
+     
 
     if(counter === 3 && kioskDetails.kioskCategory==='' ){
         displayContentForTime(remark, "You must select a category", 1000)
@@ -58,22 +74,22 @@ wholeContainer.addEventListener('click', (e) => {
       goToNextQuestion()
     }
 
-    if(counter === 8){
+      if ( counter === 8){
       goToNextQuestion()
-
     }
 
-
     if(checkInputField(userStoreCreationInput)){
-    
       displayContentForTime(remark, "Enter a somethig here", 1000)
       return
     }
+
     if(counter == 0){
       storeSetUpQuestions[1].question ="Welcome, " + userStoreCreationInput.value + ',<br> What would you like to call your kiosk?'
       renderContent(getUserKiosk(), appContainer)  
       goToNextQuestion()
     }
+
+    
     else{
     userResponses.push(userStoreCreationInput.value)
     goToNextQuestion()
@@ -81,6 +97,8 @@ wholeContainer.addEventListener('click', (e) => {
     }
 
   }
+
+
   if (e.target.id === 'add_product_button') {
      isAddProductCard = true
      renderContent(getUserKiosk(), appContainer)
@@ -127,6 +145,7 @@ wholeContainer.addEventListener('click', (e) => {
   }
 
      if (e.target.id === 'toggle_theme_container') {
+     const kiosk = document.getElementById('kiosk')
      isLightMode =!isLightMode
      renderContent(getUserKiosk(), appContainer)
      

@@ -23,8 +23,6 @@ body{
     align-items: center;
     background-color: transparent;
     font-size: 3.9rem;
-
-
 }
 
 .nav_bar img{
@@ -40,13 +38,15 @@ body{
     padding: 0px;
     gap: 0.8rem;
 }
+
 #input_email > input{
-    text-align: left;
+  text-align: left;
   border-radius: 0.5rem;
   padding: 1.5rem;
   border-style: none;
 
 }
+
 .nav_bar ul li{
     padding: 0.71rem;
     font-size: 1.5rem;
@@ -55,13 +55,9 @@ body{
 }
 
 .nav_bar ul li:hover{
-
     border: 1px black solid;
     box-shadow: 5px 5px 0px black;
 }
-    
-
-
 
 .hero_section{
     display: flex;
@@ -70,8 +66,7 @@ body{
     align-items: center;
     flex-direction: column;
     text-align: center;
-
-        font-size: 3.9rem;
+    font-size: 3.9rem;
     font-weight: 90;
     padding: 4.8rem;
     gap: 1.1rem;
@@ -80,12 +75,7 @@ body{
     
 }
 
-
-
-
-
 .sections{
-
     display: flex;
     width:100%;
     justify-content: center;
@@ -95,9 +85,6 @@ body{
     background-color: #021736;
     color: #ffffff;
     padding: 4.5rem 0rem 4.5rem 0rem;
-    
-
-
 }
 
 .sections h1{
@@ -176,7 +163,6 @@ h1{
     flex-direction: row;
     background-color: #f7ffff;
     justify-content: space-between;
-    
     height: 100%;
 
 
@@ -342,6 +328,21 @@ h1{
     background-color:#ffffff;
     height: 100vh;
     display: flex;
+    align-items: center;
+    position: relative;
+
+
+
+}
+
+.kiosk_dark_mode{
+    width:100%;
+    height: 100vh;
+    flex-direction: column;
+    background-color:#ffffff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
     position: relative;
 
 
@@ -353,10 +354,23 @@ h1{
     flex-direction: row;
     width: 100%;
     justify-content: space-around;
-    padding: 0.9rem;
+    padding: 1rem;
     border: 1px black solid;
     height: 3.3rem;
     background-color: white;
+}
+
+.kiosk_head_dark_mode{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    padding: 1rem;
+    border: 1px black solid;
+    height: 3.3rem;
+       background-color:  #021736;
+       color: white;
+
 }
 .kiosk_id{
     display: flex;
@@ -409,6 +423,7 @@ h1{
     gap:1rem
 }
 
+
 .kiosk_image{
  width: 2rem;
  height:2rem;
@@ -428,8 +443,9 @@ h1{
     display: flex;
     flex-direction: column;
     padding:1.5rem;
-    gap:0.5rem
+
 }
+
 #add_a_product_button{
     background-color: #025f59;
 
@@ -529,6 +545,15 @@ color: white;
     width: 1.4rem;
 }
 
+#category_card{
+     background-color: #dedcff;
+     border: 1px solid #004b69; ;
+     border-radius: 1.5rem;
+     font-size: 1.1rem;
+     margin-left: 1rem;
+
+}
+
 
 #share_link{
     background-color: #ff6600;
@@ -584,6 +609,27 @@ color: white;
 
 }
 
+.kiosk_contacts{
+    background-color: #353535;
+    border: 1px solid #a5a5a5;
+    padding: 0.5rem;
+    color: #d6d6d6;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+
+.kiosk_info_card{
+    display: flex; 
+    flex-direction: row;
+    gap:1rem
+}
+
+
+
+
+
+
+
 @media (max-width:375px) {
 
 
@@ -599,6 +645,13 @@ color: white;
 
 .nav_bar ul li{
     font-size: 1rem;
+}
+#hello{
+    font-size: 2.4rem;
+}
+
+#animation_card{
+    display: none;
 }
 
 .hero_section{
@@ -662,15 +715,26 @@ p{
 
 
 #store_setup_card{
-   width: 90%;
+   width: 100%;
    border-radius: 2rem;
    margin-top: 2rem;
    flex-direction: column;
-  align-self: center;
+   align-self: center;
    gap: 1rem;
    padding: 2rem;
+   height: 100%;
+ 
+}
 
-    
+#store_setup_page{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7ffff;
+    justify-content: space-between;
+    padding: 1rem;
+    height: 100%;
+
 }
 
 #store_setup_card h1{
@@ -687,7 +751,7 @@ p{
 
 
 .btn_medium{
-
+      
     width: 30%;
     left: 64%;
     top: 80%;
@@ -702,7 +766,7 @@ p{
        
        border: 1px black solid;
        background-color: white;
-       width: 68%;
+       width: 88%;
        font-size: 0.9rem;
        display: flex;
        padding: 2rem;
@@ -710,7 +774,7 @@ p{
        justify-content: center;
        align-items: center;
        position: fixed;
-       left: 17%;
+       left: 7%;
        top: 25%;
       
    
@@ -728,6 +792,7 @@ p{
     font-size: 1rem;
     font-weight: 500;
     box-shadow: 3px 3px 0px black;
+    transition: 1.5s;
 }
 
 .btn:hover{
@@ -743,6 +808,50 @@ p{
     height: 3.3rem;
  
 }
+
+.kiosk_id h1{
+    font-size: 1rem;
+}
+
+
+#category_card{
+       font-size: 0.8rem;
+
+}
+
+.kiosk_image{
+ width: 1rem;
+ height:1rem;
+ border-radius: 50%;
+ background-color: red;
+
+}
+
+.kiosk_description_card{
+    width: 100%;
+
+}
+
+.kiosk_info_card{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+   
+}
+
+.kiosk_contacts{
+    font-size: 0.8rem;
+   
+}
+
+.kiosk_info{
+    font-size: 0.8rem;
+}
+
+
+
+
+
 
 
 

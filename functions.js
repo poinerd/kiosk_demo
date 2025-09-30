@@ -11,16 +11,13 @@ function createKiosk(name, description, email, phone, products=[]){
 }
 
 function setKioskDetails(userResponse){
-    userResponse.splice(2,1)
     console.log(userResponse)
-
     kioskDetails.kioskName = userResponse[0]
     kioskDetails.kioskDescription = userResponse[2]
     kioskDetails.kioskPhone = userResponse[3]
     kioskDetails.KioskLogo = userResponses[5]
     kioskDetails.kioskEmail = userEmail.value.trim()
     console.log(kioskDetails)
-
 }
 
 
@@ -39,20 +36,14 @@ function renderQuestions(){
 
 function goToNextQuestion(){
 
-  if(counter === 10){
-       setKioskDetails(userResponses)
-       checkProductList()
-       console.log(isProductlistEmpty)
-       hasUserCreatedKiosk = true
-       saveKioskData(STORAGE_KEY, [kioskDetails, hasUserCreatedKiosk])
-       renderContent(getUserKiosk(), appContainer)     
-  }
-  else{
+    console.log(counter)
+
+
       counter+=1
       renderContent(getStoreSetUpCard(),appContainer)
       console.log(userResponses)
    
-  }
+
 }
 
 function addAProductToKiosk(name, price, number, remark){
@@ -159,3 +150,14 @@ function loadKioskData(key,){
    
     }
 }}
+
+function updateStyle(container, style, op='add'){
+    if (op = 'remove'){
+        container.classList.remove(style)
+
+    }else{
+        container.classList.add(style)
+
+    }
+  
+}
