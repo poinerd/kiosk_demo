@@ -58,9 +58,9 @@ function getUserKiosk(){
             <div class=${isLightMode? 'kiosk_head': 'kiosk_head_dark_mode'} >
             
             <div class="kiosk_id">
-            <div  >
+            <div style=" display:flex; justify-content:center; align-items:center">
             <div class = "kiosk_image" ><img src=${kioskDetails.KioskLogo} width="100%" height="100%"/></div>
-            <h1 style="display:block;padding:0.9rem">${kioskDetails.kioskName}</h1>
+            <h1 style="display:block; padding:0.9rem; ">${kioskDetails.kioskName}</h1>
             </div>
             
             <div>  
