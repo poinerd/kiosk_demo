@@ -28,6 +28,7 @@ wholeContainer.addEventListener('click', (e) => {
   }
   
   if (e.target.id === 'create_kiosk') {
+       e.preventDefault()
     if(hasUserCreatedKiosk){
         e.preventDefault()
       userExists.innerHTML = 'You already have a kiosk..Tap on my kiosk on the nav bar to access it'
@@ -171,6 +172,7 @@ if (e.target.classList.contains('category')) {
   }
 
     if (e.target.id === 'my_kiosk') {
+          e.preventDefault()
   
       if(hasUserCreatedKiosk == true){
         renderContent(getUserKiosk(), appContainer)
