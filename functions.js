@@ -21,6 +21,16 @@ function setKioskDetails(userResponse){
 }
 
 
+function checkProductList(){
+    if(kioskProducts.length == 0){
+        isProductlistEmpty = true
+
+    }
+    else{
+        isProductlistEmpty = false
+    }
+}
+
 function renderContent(child, container) {
   container.innerHTML = child
 }
@@ -69,6 +79,10 @@ function addAProductToKiosk(name, price, number, remark){
 
     
     kioskProducts.push(newProduct)
+    console.log(kioskProducts)
+    allKioskData.push(kioskProducts)
+    saveKioskData(STORAGE_KEY, allKioskData)
+    
 
     currentProductImage = null
     checkProductList()
@@ -112,15 +126,7 @@ function confirmPassword(initial, confirmation){
 }
 
 
-function checkProductList(){
-    if(kioskProducts.length == 0){
-        isProductlistEmpty = true
 
-    }
-    else{
-        isProductlistEmpty = false
-    }
-}
 
 function deleteAProduct(productId){
 
@@ -128,6 +134,18 @@ function deleteAProduct(productId){
    kioskProducts.splice(productId, 1)
    console.log(kioskProducts)
    checkProductList()
+   renderContent(getUserKiosk(), appContainer)
+}
+
+function editAProduct(productId, newName,newPrice, newStock){
+
+   productId -= 1
+  kioskProducts[productId].productName = newName
+  kioskProducts[productId].productPrice = newPrice
+  kioskProducts[productId].noInStock= newStock
+
+//    console.log(kioskProducts)
+//    checkProductList()
    renderContent(getUserKiosk(), appContainer)
 }
 
@@ -142,8 +160,11 @@ function loadKioskData(key,){
   if (RAW) {
     try {
       let retrievedData = JSON.parse(RAW);
+      allKioskData = retrievedData
       kioskDetails = retrievedData[0]
       hasUserCreatedKiosk= retrievedData[1]
+
+    kioskProducts = retrievedData[2] || []; ///Th is f thornyy
 
     } catch (e) {
       console.error("Error parsing data from localStorage", e);

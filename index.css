@@ -39,12 +39,34 @@ body{
     gap: 0.8rem;
 }
 
+#search_bar{
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+}
+
+#search_bar input{
+     border-radius: 0.5rem;
+  padding: 1.5rem;
+
+
+}
+
+#search_bar button{
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+     background-color: black;
+     color: white;
+
+
+}
+
 #input_email > input{
   text-align: left;
   border-radius: 0.5rem;
   padding: 1.5rem;
   border-style: none;
-
+ 
 }
 
 .nav_bar ul li{
@@ -275,6 +297,10 @@ h1{
 
 }
 
+#cancel_store_creation svg{
+    pointer-events: none;
+}
+
 #cancel_store_creation:hover{
       box-shadow: 3px 3px 0px black;
       color: white
@@ -421,6 +447,11 @@ h1{
     border-style: none;
 }
 
+
+#toggle_theme_container svg{
+ pointer-events: none;
+}
+
 .kiosk_id{
     display: flex;
     gap:1rem
@@ -486,6 +517,11 @@ color: white;
       
 
    
+}
+
+#open_description_button svg{
+    pointer-events: none;
+
 }
 
 
@@ -562,6 +598,7 @@ color: white;
 
 #product_edit_options svg{
     width: 1.4rem;
+    pointer-events: none;
 }
 
 #category_card{
@@ -666,6 +703,10 @@ color: white;
     gap:1rem
 }
 
+.save_btn{
+    background-color: red;
+    color: white;
+}
 
 
 
