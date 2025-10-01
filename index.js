@@ -1,16 +1,18 @@
 const allSections = document.getElementById('all_sections')
 const userEmail = document.getElementById('user_email')
+const userExists = document.getElementById('recreate_kiosk_remark')
 const createKioskButton = document.getElementById('create_kiosk')
 const appContainer = document.getElementById('app_container')
 const myKiosk = document.getElementById('my_kiosk')
 const kioskLogo = document.getElementById('kiosk_logo')
 const wholeContainer = document.getElementById('whole_container')
 const startSelling = document.getElementById('start_selling')
+let productCount = 0
 
 // console.log(hasUserCreatedKiosk)
 // console.log(isProductlistEmpty)
 
-console.log(allKioskData)
+// console.log(allKioskData)
 
 
 loadKioskData(STORAGE_KEY)
@@ -20,11 +22,18 @@ checkProductList()
 wholeContainer.addEventListener('click', (e) => {
 
   if (e.target.id == 'kiosk_logo') {
-    appContainer.innerHTML =''
-    appContainer.appendChild(allSections)
+    // appContainer.innerHTML =''
+    // appContainer.appendChild(allSections)
+    location.reload();
   }
   
   if (e.target.id === 'create_kiosk') {
+    if(hasUserCreatedKiosk){
+        e.preventDefault()
+      userExists.innerHTML = 'You already have a kiosk..Tap on my kiosk on the nav bar to access it'
+      return
+
+    }
     if (userEmail.value.trim() != ''){
       e.preventDefault()
       allSections.style.display = 'none'
@@ -44,8 +53,9 @@ wholeContainer.addEventListener('click', (e) => {
     }
 
   if (e.target.id === 'cancel_store_creation') {
-       appContainer.innerHTML =''
-       appContainer.appendChild(allSections)
+      //  appContainer.innerHTML =''
+      //  appContainer.appendChild(allSections)
+          location.reload();
     }
   
   if (e.target.id === 'next_question_button') {
@@ -58,8 +68,8 @@ wholeContainer.addEventListener('click', (e) => {
        checkProductList()
        console.log(isProductlistEmpty)
        hasUserCreatedKiosk = true
-       allKioskData.push(kioskDetails)
-       allKioskData.push(hasUserCreatedKiosk)
+       allKioskData.details = kioskDetails
+       allKioskData.isUser = hasUserCreatedKiosk
        saveKioskData(STORAGE_KEY, allKioskData)
        renderContent(getUserKiosk(), appContainer)     
      }
@@ -172,8 +182,9 @@ if (e.target.classList.contains('category')) {
 
     if (e.target.id === 'delete_product') {
     const productId = e.target.getAttribute("product_id");
+    console.log('this product has an id of', productId)
     deleteAProduct(productId)
-    console.log("Deleted product with ID:", productId);
+    // console.log("Deleted product with ID:", productId);
      
   }
 
@@ -183,7 +194,8 @@ if (e.target.classList.contains('category')) {
     const productPrice = document.getElementById('product_pricee')
     const noInStock = document.getElementById('no_in_stockk')
     const remark = document.getElementById('remark')
-
+    
+    
     addAProductToKiosk(productName.value, productPrice.value, noInStock.value, remark)
     
     setTimeout(()=>{
@@ -240,7 +252,7 @@ else if (e.target.classList.contains("save_btn")) {
   const newName = nameInput.value.trim();
   const newPrice = priceInput.value.trim();
   const newStock = stockInput.value.trim();
-
+  console.log('this is the id', productId)
   // // call API or function
   editAProduct(productId, newName, newPrice, newStock);
 

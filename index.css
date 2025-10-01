@@ -16,6 +16,15 @@ body{
              overflow-x: hidden;
 }
 
+#animation_card {
+  background-image: url(./assets/bg.jpg);
+  background-size: contain;   /* show the whole image */
+  background-position: center;
+  background-color: black;    /* fallback for empty space */
+  width: 100%;
+  height: 100vh;              /* adjust to your layout */
+}
+
 .nav_bar{
     padding: 1rem;
     display: flex;
@@ -134,7 +143,7 @@ body{
 .btn_medium{
     padding: 1rem;
     border-radius: 1.4rem;
-    background-color:  #F35B04;
+    background-color:  #4087F3;
     color: white;
     font-size: 0.8rem;
     border-style: none;
@@ -145,6 +154,12 @@ body{
      left: 85%;
      top: 80%
   
+}
+
+.btn_medium:hover{
+      background-color: #306bc5 ;
+      box-shadow: 10px 10px 0px black;
+
 }
 
 p{
@@ -321,6 +336,10 @@ h1{
 
 }
 
+#cancel_add_product svg{
+    pointer-events: none;
+}
+
 .go_back_button{
     width: 2rem;
     border-radius: 1rem;
@@ -353,7 +372,7 @@ h1{
     width:100%;
     height: 100vh;
     flex-direction: column;
-      background-color: #ececec;
+      background-color: #f7f7f8;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -367,13 +386,17 @@ h1{
     width:100%;
     height: 100vh;
     flex-direction: column;
-    background-color:#ffffff;
+    background-color:  #021736;
     height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
 
 
+}
+
+.kiosk_dark_mode svg{
+   color: white;
 }
 
 
@@ -394,7 +417,7 @@ h1{
     width: 100%;
     justify-content: space-around;
     padding: 2rem;
-    border: 1px black solid;
+    border: 1px rgb(255, 255, 255) solid;
     height: 3.3rem;
        background-color:  #021736;
        color: white;
@@ -731,7 +754,7 @@ color: white;
     font-size: 1rem;
 }
 #hello{
-    font-size: 2.4rem;
+    font-size: 2.1rem;
 }
 
 #animation_card{
@@ -745,33 +768,42 @@ color: white;
     text-align: center;
     padding: 2rem;
     gap: 1.1rem;
-    background-color: #b8fdff;    
+    background-color: #f7f7f8;    
 }
 
 #input_email{
 
     width: 100%;
+    height: 2.4rem;
     display: flex;
     justify-content: center;
-    padding: 0px;
-    gap: 0.8rem;
+    align-items: center;
+        font-size: 0.5rem;
+  
+
+ 
 
 }
 #input_email > input{
     text-align: left;
   border-radius: 0.5rem;
-  padding: 0.1rem;
+  padding: 1rem;
   border-style: none;
+ 
 
 }
 
 
 
 .btn{
-    padding: 0.9rem;
+    padding: 1rem;
     border-radius: 1.4rem;
-    font-size: 1rem;
-    font-size: 0.9rem;
+
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
  
  
 }
@@ -804,7 +836,7 @@ color: white;
 
      .sections h1{
     font-weight: 500;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 p{
@@ -836,7 +868,7 @@ p{
 }
 
 #store_setup_card h1{
-   font-size: 1.5rem;
+   font-size: 1.2rem;
     
 }
  
@@ -870,14 +902,13 @@ p{
        align-items: center;
        position: fixed;
        left: 7%;
-
        top: 25%;
       
    
 }
 
 #add_a_product_card input{
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     
    
 }
@@ -885,7 +916,7 @@ p{
 .btn{
     padding: 1rem;
     border-radius: 0.4rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     box-shadow: 3px 3px 0px black;
     transition: 1.5s;

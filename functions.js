@@ -70,7 +70,7 @@ function addAProductToKiosk(name, price, number, remark){
     }
     else{
         let newProduct = {
-        productId: (kioskProducts.length)+1,
+        productId: kioskProducts.length,
         productName: name,
         productPrice: price,
         noInStock: number,
@@ -78,13 +78,13 @@ function addAProductToKiosk(name, price, number, remark){
     }
 
     
-    kioskProducts.push(newProduct)
+    kioskProducts = [...kioskProducts, newProduct]
+    allKioskData.products = kioskProducts
     console.log(kioskProducts)
-    allKioskData.push(kioskProducts)
     saveKioskData(STORAGE_KEY, allKioskData)
     
 
-    currentProductImage = null
+    // currentProductImage = null
     checkProductList()
     remark.style.display='block'
     remark.style.backgroundColor='#b8fdff'
@@ -129,23 +129,24 @@ function confirmPassword(initial, confirmation){
 
 
 function deleteAProduct(productId){
-
-   productId -= 1
-   kioskProducts.splice(productId, 1)
+   const index = kioskProducts.findIndex(p => p.productId == productId);
+   kioskProducts.splice(index, 1)
    console.log(kioskProducts)
    checkProductList()
    renderContent(getUserKiosk(), appContainer)
 }
 
 function editAProduct(productId, newName,newPrice, newStock){
+  const index = kioskProducts.findIndex(p => p.productId == productId);
+//   if (index === -1) return; 
 
-   productId -= 1
-  kioskProducts[productId].productName = newName
-  kioskProducts[productId].productPrice = newPrice
-  kioskProducts[productId].noInStock= newStock
+  kioskProducts[index].productName = newName
+  kioskProducts[index].productPrice = newPrice
+  kioskProducts[index].noInStock= newStock
 
 //    console.log(kioskProducts)
 //    checkProductList()
+   saveKioskData(STORAGE_KEY, allKioskData)
    renderContent(getUserKiosk(), appContainer)
 }
 
@@ -161,10 +162,11 @@ function loadKioskData(key,){
     try {
       let retrievedData = JSON.parse(RAW);
       allKioskData = retrievedData
-      kioskDetails = retrievedData[0]
-      hasUserCreatedKiosk= retrievedData[1]
+      kioskDetails = allKioskData.details
+      hasUserCreatedKiosk= allKioskData.isUser
+      kioskProducts = allKioskData.products
 
-    kioskProducts = retrievedData[2] || []; ///Th is f thornyy
+    // kioskProducts = retrievedData[2] || []; ///Th is f thornyy
 
     } catch (e) {
       console.error("Error parsing data from localStorage", e);

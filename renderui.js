@@ -13,7 +13,7 @@ function getStoreSetUpCard(){
   return `  
     <div id="store_setup_page">
     <div id="animation_card"> 
-    <img src="../assets/nokiosk.png" width="300px" id="no_kiosk" >
+  
     </div>
      
     <div id="store_setup_card">
@@ -95,7 +95,7 @@ function getUserKiosk(){
             </div>
 
 
-             <div class="empty_state" style="display:${isProductlistEmpty?'block':'none'}" ><img src="./assets/empty.png" width= '300px'>
+             <div class="empty_state" style="display:${isProductlistEmpty?'block':'none'}" ><img src="./assets/empty1.png" width= '300px'>
              <p> You have nothing in your kiosk</p>
              </div>
             
@@ -141,15 +141,19 @@ function getUserKiosk(){
              <div class='product_card_bg' id='product_card_bg' style="display: ${isAddProductCard? 'block': 'none'}">
             <form id="add_a_product_card" style="display: ${isAddProductCard? 'block': 'none'}">
              <p id="remark" >Hello wolrd</p>
-          <svg  id = "cancel_add_product"   xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+
+             <button id="cancel_add_product">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
              <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
               </svg>
+              </button>
+       
      
       
 
             <div>
             <label > Product Name </label>
-            <input id="product_namee" type="text" placeholder="enter the name of the product you want to add" required/>
+            <input id="product_namee" type="text" placeholder="Enter the name of the product" required/>
             </div>
 
 
@@ -170,12 +174,12 @@ function getUserKiosk(){
 
             <div>
             <label > Price Per Unit (₦) </label>
-            <input id="product_pricee"  type="number" placeholder="enter the price" required/>
+            <input id="product_pricee"  type="number" placeholder="Enter the price" required/>
             </div>
             
             <div>
             <label > Number in stock</label>
-            <input id="no_in_stockk"  placeholder="enter the number in stock" type="number"  required/>
+            <input id="no_in_stockk"  placeholder="Enter the number in stock" type="number"  required/>
             </div>
 
 
@@ -194,49 +198,12 @@ function getUserKiosk(){
 
 
 
-function getSettingsPage(){
-  return `<div id="settings_page">
-  <div>
-    <svg  id="go_back_button" class= "go_back_button" style ="width:1rem"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-    </svg>
-    <h1> Settings </h1>
-
-  <div id='side_options' >
-  <button>Profile Settings</button>
-  <button>Customizations</button>
-  <button>Profile Settings</button>
-  </div>
-  
-  </div>
-
-  <div id='page_content'> desc is here</div>
-  </div>`
-}
-
-function getOrdersPage(){
-  return `<div>
-  <svg  id="go_back_button" style ="width:1rem"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-  </svg>
-
-  <h1> Orders </h1>
-
-
-
-
-  </div>`
-}
-
-
-
-
 function getNoKiosk(){
     return `
             <div class="kiosk">
-            <img src="../assets/nokiosk.png" width="300px" id="no_kiosk" >
+            <img src="../assets/nkiosk.png" width="200px" id="no_kiosk" style="margin-top:3rem; margin-bottom:1rem" >
             <h1 style="text-align:center; margin-bottom:1rem">You do not have any kiosks yet</h1>
-            <button class="btn" id="create_kiosk_2" style="width: 20%">  Create a new kiosk now</button>
+            <button class="btn" id="create_kiosk_2" style="width: 70%; margin:1rem" >  Create a new kiosk now</button>
             </div> `
 }
 
