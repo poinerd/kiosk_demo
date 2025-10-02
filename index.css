@@ -1107,3 +1107,22 @@ align-items: center;
 
 }
 
+
+@media (min-width:376px) {
+
+
+    #tunde{
+     width: 80%;
+     border-radius: 1rem;
+      animation: float 2s ease-in-out infinite
+}
+
+#coin{
+    display: none;
+}
+
+#bag{
+    display: none;
+}
+
+}
