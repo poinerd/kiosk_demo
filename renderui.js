@@ -54,18 +54,18 @@ function getStoreSetUpCard(){
 
 function getUserKiosk(){
   
-    return `<div class=${isLightMode? 'kiosk': 'kiosk_dark_mode'} id="kiosk" >
-            <div class=${isLightMode? 'kiosk_head': 'kiosk_head_dark_mode'} >
+    return `<div class=${isLightMode? 'kiosk' : 'kiosk_dark_mode'} id="kiosk" >
+            <div class=${isLightMode? 'kiosk_head' : 'kiosk_head_dark_mode'}>
             
             <div class="kiosk_id">
             <div style=" display:flex; justify-content:center; align-items:center">
-            <div class = "kiosk_image" ><img src=${kioskDetails.KioskLogo} width="100%" height="100%"/></div>
+            <div class = "kiosk_image" ><img src="../assets/slab.png" width="70%" height="60%"/></div>
             <h1 style="display:block; padding:0.9rem; ">${kioskDetails.kioskName}</h1>
             </div>
             
             <div>  
             <div id="category_card">${kioskDetails.kioskCategory}</div>
-            <button type="button" id="open_description_button" style="border-radius:1.5rem; padding:1rem; border-style:none; background-color:transparent"> ${iskioskDescription ? kioskDescriptionUp : kioskDescriptionDown} </button>
+            <button type="button" id="open_description_button" style="border-radius:1.5rem; padding:1rem; border-style:none; background-color:transparent; " > ${iskioskDescription ? kioskDescriptionUp : kioskDescriptionDown} </button>
             </div>
             </div>
            
@@ -73,32 +73,33 @@ function getUserKiosk(){
             <div class="kiosk_options">
 
               <div class="kiosk_tab" id="kiosk_products">
+              <span id="all_products" > All Products</span>
                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                    </svg>(${kioskProducts.length})
               </div>
 
-              <div class="kiosk_tab">
-              <button id="toggle_theme_container" type="button" > ${isLightMode? lightMode: darkMode}</button>
-              </div>
+          
+              <button id="toggle_theme_container"> ${isLightMode?lightMode: darkMode}</button>
+            
              
             </div>
 
             </div>
 
             <div class="kiosk_description_card"  style ="display: ${iskioskDescription? 'block':'none'}">
-               <p class="kiosk_info"> Sells ${kioskDetails.kioskDescription}</p>
-               <p  class="kiosk_info">${kioskDetails.kioskDescription}</p>
+               <p class="kiosk_info" style='font-size:1rem'> Sells ${productsSold}</p>
+               <p  class="kiosk_info" style='font-size:1.2rem; margin-bottom:1rem'>${kioskDetails.kioskDescription}</p>
                <div class="kiosk_info_card">
                     <p  class="kiosk_contacts" >${kioskDetails.kioskPhone}</p>
                     <p  class="kiosk_contacts" >${kioskDetails.kioskEmail}</p></div>
             </div>
 
 
-             <div class="empty_state" style="display:${isProductlistEmpty?'block':'none'}" ><img src="./assets/empty1.png" width= '300px'>
-             <p> You have nothing in your kiosk</p>
+             <div class="empty_state" style="display:${isProductlistEmpty?'block':'none'}" ><img src="./assets/emptybag.png" width='200px'>
+             <p style="text-align:center; margin-top:1rem"> You have nothing in your kiosk</p>
              </div>
-            
+          
 
             <div class="products_list" id="all_products_list">
 
@@ -126,14 +127,14 @@ function getUserKiosk(){
             
             </div>
             <div id="product_image"><img src=${product.productImage} width="100%" height="100%"/></div>
-            <p id="product_name"  class="product_name">${product.productName}</p>
+            <p id="product_name"  class="product_name" style="font-size: 1.4rem; ">${product.productName}</p>
             <p id="product_price" class="product_price" style="font-size: 1.1rem; ">${'₦'+ product.productPrice}</p>
             <p id="no_in_stock" class="no_in_stock" style="font-size: 0.9rem">${'Number in stock: '+ product.noInStock}</p>
 
             </div>
             `
 
-            })}
+            }).join("")}
        
 
             </div>

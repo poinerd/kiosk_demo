@@ -2,7 +2,6 @@
 function createKiosk(name, description, email, phone, products=[]){
 
     kioskDetails.kioskName = name
-    // kioskDetails.kioskCategory = category
     kioskDetails.kioskDescription = description
     kioskDetails.kioskEmail = userEmail.value.trim() 
     kioskDetails.kioskPhone = phone
@@ -35,20 +34,13 @@ function renderContent(child, container) {
   container.innerHTML = child
 }
 
-function goHome(){
-      window.location.href = "/"
-}
+
 
 function renderQuestions(){
     renderContent(getStoreSetUpCard(), appContainer)
 }
 
-
 function goToNextQuestion(){
-
-    console.log(counter)
-
-
       counter+=1
       renderContent(getStoreSetUpCard(),appContainer)
       console.log(userResponses)
@@ -61,6 +53,8 @@ function addAProductToKiosk(name, price, number, remark){
     if( name == '' || price =='' || number== ''){
         remark.style.display='block'
         remark.style.backgroundColor='rgb(255, 157, 157)'
+        remark.style.borderRadius = '1rem'
+        remark.style.padding = '0.5rem'
         remark.innerHTML = 'Ensure you enter all details!'
 
         setTimeout(()=>{
@@ -87,7 +81,9 @@ function addAProductToKiosk(name, price, number, remark){
     // currentProductImage = null
     checkProductList()
     remark.style.display='block'
-    remark.style.backgroundColor='#b8fdff'
+    remark.style.backgroundColor='#d4ffdbff'
+        remark.style.padding = '0.5rem'
+    remark.style.borderRadius = '1rem'
     remark.innerHTML = name + " "+'sucessfully added to kiosk!'
     
     setTimeout(()=>{
@@ -137,15 +133,13 @@ function deleteAProduct(productId){
 }
 
 function editAProduct(productId, newName,newPrice, newStock){
-  const index = kioskProducts.findIndex(p => p.productId == productId);
-//   if (index === -1) return; 
+  const index = kioskProducts.findIndex(p => p.productId == productId)
 
   kioskProducts[index].productName = newName
   kioskProducts[index].productPrice = newPrice
   kioskProducts[index].noInStock= newStock
 
-//    console.log(kioskProducts)
-//    checkProductList()
+
    saveKioskData(STORAGE_KEY, allKioskData)
    renderContent(getUserKiosk(), appContainer)
 }
@@ -166,7 +160,7 @@ function loadKioskData(key,){
       hasUserCreatedKiosk= allKioskData.isUser
       kioskProducts = allKioskData.products
 
-    // kioskProducts = retrievedData[2] || []; ///Th is f thornyy
+
 
     } catch (e) {
       console.error("Error parsing data from localStorage", e);
