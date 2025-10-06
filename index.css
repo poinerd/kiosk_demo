@@ -989,7 +989,7 @@ color: white;
 
 
 
-@media (max-width:375px) {
+@media (max-width:720px) {
 
 
 .nav_bar{
@@ -1310,7 +1310,7 @@ align-items: center;
 
 .log_in_form{
 
-    width: 80%;
+    width: 100%;
  
 }
 
