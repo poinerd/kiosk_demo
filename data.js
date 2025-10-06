@@ -106,7 +106,7 @@ const storeSetUpQuestions = [
 
 
      {
-    question: 'Enter a pssword to access your store',
+    question: 'Enter a password to access your store',
     placeholder: 'Enter a short description of your store users can see when they come across your kiosk online ',
     inputType: 'password',
     buttonVisibility: 'block',
@@ -118,7 +118,7 @@ const storeSetUpQuestions = [
   },
 
    {
-    question: 'Almost there !<br/> Input your business phone buyers can contact you through',
+    question: 'Almost there!<br/> Input your business phone buyers can contact you through',
     placeholder: 'enter the your business phone number',
     inputType: 'tel',
     buttonVisibility: 'block',

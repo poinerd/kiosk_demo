@@ -10,18 +10,31 @@
 
 }
 
+
+#top_info{
+    width: 80%;
+    padding: 4rem
+}
 #tunde_card{
     width: 40%; 
 }
 
+#tunde_card p{
+    font-size: 1.5rem
+}
 #start_selling{
     background-color: #FFF2BE;
     padding: 1rem;
     border-radius: 4rem;
+    width: 60%;
 
     /* border: 2px solid black; */
     margin-top: 1rem;
    
+}
+
+#start_selling h1{
+    font-size: 4rem;
 }
 
 #first_section{
@@ -110,6 +123,8 @@ body{
     gap: 0.8rem;
     
 }
+
+
 #search_bar{
     display: flex;
     flex-direction: row;
@@ -1016,19 +1031,25 @@ color: white;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    padding: 2rem;
+    padding: 1rem;
     gap: 1.1rem;
     background-color: #E0F2FF;    
 }
 
 #input_email{
-
+   
     width: 100%;
-    height: 2.4rem;
+  
+
     display: flex;
     justify-content: center;
     align-items: center;
-        font-size: 0.5rem;
+    font-size: 0.1rem;
+    gap: 0.4rem;
+   
+
+ 
+
   
 
  
@@ -1038,7 +1059,7 @@ color: white;
     text-align: left;
   border-radius: 0.5rem;
   padding: 1rem;
-  border-style: none;
+
  
 
 }
@@ -1049,8 +1070,9 @@ color: white;
 
 
 .btn{
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 1.4rem;
+ 
 
   
     display: flex;
@@ -1085,13 +1107,7 @@ color: white;
       animation: float 2s ease-in-out infinite
 }
 
-#coin{
-    display: none;
-}
 
-#bag{
-    display: none;
-}
 
 
 
@@ -1115,7 +1131,8 @@ p{
 
 
 #store_setup_card{
-   width: 100%;
+   width: 89%;
+   min-height: 89%;
    border-radius: 2rem;
    margin-top: 2rem;
    flex-direction: column;
@@ -1212,6 +1229,8 @@ p{
 
 
 
+
+
 .kiosk_id{
     display: flex;
     flex-direction: row;
@@ -1276,6 +1295,12 @@ align-items: center;
  
 }
 
+#top_info{
+    width: 100%;
+ 
+    padding: 2rem ;
+}
+
 #category_card{
      background-color: #dedcff;
      border: 1px solid #000000; ;
@@ -1318,6 +1343,24 @@ align-items: center;
 
 }
 
+#start_selling{
+    width: 100%;
+}
+
+#start_selling h1{
+    font-size: 1.7rem;
+}
+
+#search_bar input{
+  
+    width: 80%;
+
+
+}
+
+
+
+
 
 .empty_state img{
   margin-left: 5%;
@@ -1328,6 +1371,10 @@ align-items: center;
     width: 80%;
   
  
+}
+
+#tunde_card p{
+    font-size: 1.3rem;
 }
 
 
