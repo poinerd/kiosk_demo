@@ -1,21 +1,11 @@
 
-function createKiosk(name, description, email, phone, products=[]){
-
-    kioskDetails.kioskName = name
-    kioskDetails.kioskDescription = description
-    kioskDetails.kioskEmail = userEmail.value.trim() 
-    kioskDetails.kioskPhone = phone
-    kioskDetails.kioskproducts = products
-
-}
-
 function setKioskDetails(userResponse){
     console.log(userResponse)
     kioskDetails.kioskName = userResponse[0]
     kioskDetails.kioskDescription = userResponse[2]
-    kioskDetails.kioskPhone = userResponse[3]
-    kioskDetails.KioskLogo = userResponses[5]
+    kioskDetails.kioskPhone = userResponse[4]
     kioskDetails.kioskEmail = userEmail.value.trim()
+    kioskDetails.kioskPassword = userResponse[3]
     console.log(kioskDetails)
 }
 
@@ -23,7 +13,6 @@ function setKioskDetails(userResponse){
 function checkProductList(){
     if(kioskProducts.length == 0){
         isProductlistEmpty = true
-
     }
     else{
         isProductlistEmpty = false
@@ -35,17 +24,15 @@ function renderContent(child, container) {
 }
 
 
-
 function renderQuestions(){
     renderContent(getStoreSetUpCard(), appContainer)
 }
+
 
 function goToNextQuestion(){
       counter+=1
       renderContent(getStoreSetUpCard(),appContainer)
       console.log(userResponses)
-   
-
 }
 
 function addAProductToKiosk(name, price, number, remark){
@@ -77,12 +64,10 @@ function addAProductToKiosk(name, price, number, remark){
     console.log(kioskProducts)
     saveKioskData(STORAGE_KEY, allKioskData)
     
-
-    // currentProductImage = null
     checkProductList()
     remark.style.display='block'
     remark.style.backgroundColor='#d4ffdbff'
-        remark.style.padding = '0.5rem'
+    remark.style.padding = '0.5rem'
     remark.style.borderRadius = '1rem'
     remark.innerHTML = name + " "+'sucessfully added to kiosk!'
     
@@ -92,8 +77,8 @@ function addAProductToKiosk(name, price, number, remark){
 
 
     }   
-    
 }
+
 function checkInputField(inputField){
     if (inputField.value.trim() === ""){
         return true
@@ -102,8 +87,9 @@ function checkInputField(inputField){
     }
 }
 
-function displayContentForTime(container, text, time){
+function displayContentForTime(container, text, time, bg='transparent'){
     container.style.display = 'block'
+    container.style.backgroundColor =  bg
     container.innerHTML = text
 
     setTimeout(()=>{
@@ -112,22 +98,11 @@ function displayContentForTime(container, text, time){
 
 }
 
-function confirmPassword(initial, confirmation){
-    if(initial===confirmation){
-        return true
-    }
-    else{
-        return false
-    }
-}
-
-
-
-
 function deleteAProduct(productId){
    const index = kioskProducts.findIndex(p => p.productId == productId);
    kioskProducts.splice(index, 1)
    console.log(kioskProducts)
+   saveKioskData(STORAGE_KEY, allKioskData)
    checkProductList()
    renderContent(getUserKiosk(), appContainer)
 }
@@ -139,7 +114,6 @@ function editAProduct(productId, newName,newPrice, newStock){
   kioskProducts[index].productPrice = newPrice
   kioskProducts[index].noInStock= newStock
 
-
    saveKioskData(STORAGE_KEY, allKioskData)
    renderContent(getUserKiosk(), appContainer)
 }
@@ -149,7 +123,7 @@ function saveKioskData(key, data){
     localStorage.setItem(key, JSON.stringify(data))
 }
 
-function loadKioskData(key,){
+function loadKioskData(key){
     localStorage.getItem(key)
     const RAW = localStorage.getItem(STORAGE_KEY);
   if (RAW) {
@@ -159,22 +133,24 @@ function loadKioskData(key,){
       kioskDetails = allKioskData.details
       hasUserCreatedKiosk= allKioskData.isUser
       kioskProducts = allKioskData.products
-
-
-
+      kioskDB = allKioskData.kioskDb
     } catch (e) {
       console.error("Error parsing data from localStorage", e);
    
     }
 }}
 
-function updateStyle(container, style, op='add'){
-    if (op = 'remove'){
-        container.classList.remove(style)
 
-    }else{
-        container.classList.add(style)
 
-    }
+function searchKiosk(query){
+    return kioskDb.filter((kiosk)=> {
+    return kiosk.kioskCategory.toLowerCase().includes(query) || kiosk.kioskName.toLowerCase().includes(query) || kiosk.kioskSells.toLowerCase().includes(query)} )
+
   
+}
+
+function getCategoryColor(arri){
+    cat = arri
+    console.log(cat)
+    return Number(categoryColors.cat)
 }

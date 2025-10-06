@@ -6,21 +6,40 @@ const appContainer = document.getElementById('app_container')
 const myKiosk = document.getElementById('my_kiosk')
 const kioskLogo = document.getElementById('kiosk_logo')
 const wholeContainer = document.getElementById('whole_container')
+const searchButton = document.getElementById('search_buttonn')
+const searchField = document.getElementById('search_field')
 
 
-
-
-
-
+searchButton.disabled = true
 loadKioskData(STORAGE_KEY)
-
 checkProductList()
+
+
+searchField.addEventListener('input', (e)=>{
+  if(searchField.value ===  " "){
+
+       searchButton.classList.add('search_button')
+    searchButton.classList.remove('search_button_enabled')
+    searchButton.disabled = true
+ 
+ 
+
+  } else{
+      
+
+    e.preventDefault()
+    searchButton.classList.add('search_button_enabled')
+    searchButton.classList.remove('search_button')
+    searchButton.disabled = false
+  
+
+
+  }
+})
 
 wholeContainer.addEventListener('click', (e) => {
 
   if (e.target.id == 'kiosk_logo') {
-    // appContainer.innerHTML =''
-    // appContainer.appendChild(allSections)
     location.reload();
   }
   
@@ -50,6 +69,30 @@ if (e.target.id === 'create_kiosk_2') {
           location.reload();
     }
 
+  if (e.target.id === 'search_buttonn') {
+
+
+      let searchQuery = searchField.value.toLowerCase().trim()
+      let result = searchKiosk(searchQuery)
+
+
+      if(result.length === 0){
+
+        isSearchEmpty = true
+        renderContent(getResultPage(searchQuery, searchKiosk(searchQuery)), appContainer)
+        
+        
+      }
+
+      else{
+         isSearchEmpty = false
+        renderContent(getResultPage(searchQuery, searchKiosk(searchQuery)), appContainer)
+        
+      }
+
+     
+    }
+
 if (e.target.id === 'cancel_store_creation') {
     
           location.reload();
@@ -60,18 +103,21 @@ if (e.target.id === 'next_question_button') {
     const userStoreCreationInput = document.getElementById('user_store_creation_input')
     const remark = document.getElementById('input_remark')
     
-if(counter === 6 ){
+if(counter === 7 ){
        setKioskDetails(userResponses)
        checkProductList()
        console.log(isProductlistEmpty)
+       kioskDb.push(kioskDetails)
        hasUserCreatedKiosk = true
        allKioskData.details = kioskDetails
        allKioskData.isUser = hasUserCreatedKiosk
+       allKioskData.kioskDb = kioskDb
        saveKioskData(STORAGE_KEY, allKioskData)
+      
        renderContent(getUserKiosk(), appContainer)     
      }
 
-       if(counter === 2 ){
+     if(counter === 2){
      productsSold = userStoreCreationInput.value.trim()
      }
  
@@ -88,12 +134,13 @@ if(counter === 6 ){
 
 
     if(checkInputField(userStoreCreationInput)){
-      displayContentForTime(remark, "Enter a somethig here", 1000)
+      displayContentForTime(remark, "You must give an input here", 1000)
       return
     }
 
     if(counter == 0){
       storeSetUpQuestions[1].question ="Welcome, " + userStoreCreationInput.value + ',<br> What would you like to call your kiosk?'
+      kioskDetails.kioskUserName = userStoreCreationInput.value.trim()
       renderContent(getUserKiosk(), appContainer)  
       goToNextQuestion()
     }
@@ -101,6 +148,7 @@ if(counter === 6 ){
     
     else{
     userResponses.push(userStoreCreationInput.value)
+    console.log(userResponses)
     goToNextQuestion()
 
     }
@@ -109,6 +157,7 @@ if(counter === 6 ){
 
 
   if (e.target.id === 'add_product_button') {
+     const kiosk = document.getElementById('kiosk')
      isAddProductCard = true
      renderContent(getUserKiosk(), appContainer)
      const addProductButton = document.getElementById('add_product_button')
@@ -154,10 +203,13 @@ if (e.target.classList.contains('category')) {
   }
 
      if (e.target.id === 'toggle_theme_container') {
-    
-     
-     isLightMode =!isLightMode
-     renderContent(getUserKiosk(), appContainer)
+      const toggleButton = document.getElementById('toggle_theme_container')
+       const kiosk = document.getElementById('kiosk')
+       isLightMode = !isLightMode;
+ 
+       toggleButton.innerHTML = isLightMode?lightMode: darkMode
+       kiosk.style.backgroundColor = isLightMode?'#01162b': '#f9f9ff'
+       
      
   }
 
@@ -165,9 +217,11 @@ if (e.target.classList.contains('category')) {
           e.preventDefault()
   
       if(hasUserCreatedKiosk == true){
-        renderContent(getUserKiosk(), appContainer)
+          renderContent(getLoginPage(), appContainer)
+       
       }
       else{
+      
         renderContent(getNoKiosk(), appContainer)
       }
   }
@@ -179,6 +233,32 @@ if (e.target.classList.contains('category')) {
 
      
   }
+
+      if (e.target.id === 'login_button') {
+        e.preventDefault()
+        const passwordField = document.getElementById('password_field')
+        const emailField = document.getElementById('email_field')
+        const loginResponse = document.getElementById('login_response')
+        loginResponse.style.display ='block'
+
+        if(passwordField.value.trim() === kioskDetails.kioskPassword && emailField.value.trim() === kioskDetails.kioskEmail){
+          displayContentForTime(loginResponse, 'logging you in...', 1000, '#B3C5FF')
+          setTimeout(()=>{
+            renderContent(getUserKiosk(), appContainer)
+
+          }, 1000)
+        }
+        else{
+          displayContentForTime(loginResponse, `${kioskDetails.kioskUserName}, take a look at your password and email again`, 1000, '#FFB3B3')
+          emailField.value = ''
+          passwordField.value = ' '
+      
+        }
+
+
+     
+  }
+
 
     if (e.target.id === 'submit_product_button') {
     e.preventDefault()
@@ -194,8 +274,7 @@ if (e.target.classList.contains('category')) {
           renderContent(getUserKiosk(), appContainer)
     },1000)
     const addProductButton = document.getElementById('add_product_button')
- 
-   addProductButton.style.display = 'none'
+    addProductButton.style.display = 'none'
   }
 
      if (e.target.id === 'go_back_button') {

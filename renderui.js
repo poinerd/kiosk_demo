@@ -64,7 +64,7 @@ function getUserKiosk(){
             </div>
             
             <div>  
-            <div id="category_card">${kioskDetails.kioskCategory}</div>
+            <div id="category_card" style="background-color:${categoryColors[kioskDetails.kioskCategory]}">${kioskDetails.kioskCategory}</div>
             <button type="button" id="open_description_button" style="border-radius:1.5rem; padding:1rem; border-style:none; background-color:transparent; " > ${iskioskDescription ? kioskDescriptionUp : kioskDescriptionDown} </button>
             </div>
             </div>
@@ -80,7 +80,7 @@ function getUserKiosk(){
               </div>
 
           
-              <button id="toggle_theme_container"> ${isLightMode?lightMode: darkMode}</button>
+              <button id="toggle_theme_container"> CnaZ</button>
             
              
             </div>
@@ -208,6 +208,73 @@ function getNoKiosk(){
             </div> `
 }
 
+
+function getLoginPage(){
+
+   return `
+            <div class="kiosk">
+            <img src="../assets/lock.png" width="90px" id="no_kiosk" style="margin-top:3rem; margin-bottom:1rem" >
+            <h1 style="text-align:center; margin-bottom:1rem"> Welcome back, ${kioskDetails.kioskUserName}</h1>
+
+            <form class='log_in_form' >
+       
+            <div>
+            <label style="font-size:1.2rem"> Email </label>
+            <input type='email' required placeholder='Enter your email' id='email_field'  />
+            </div>
+
+
+
+              
+            <div>
+            <label  style="font-size:1.2rem"> Password </label>
+            <input type='password' required placeholder='Enter your password' id='password_field' />
+            </div>
+            <p id='login_response' style='color:black; font-size:0.9rem ; padding: 0.5rem; display:none; width:100%'></p>
+            
+            <button type='submit'  class='btn' id='login_button' > Submit</button>
+            </form>
+            </div> `
+
+}
+
+function getResultPage(query, queryResultsArray){
+  return`
+  <div class='kiosk_2'>
+     
+    <h1 style='margin-top:2rem' id='search_heading' >${isSearchEmpty? `Nothing was found for "${query}"` : `Search results for "${query}" (${queryResultsArray.length})`}</h1>
+    <img src="./assets/nosearch.png" width="200px" style="display:${isSearchEmpty? 'block': 'none'}; margin-top:1.5rem "/>
+    <div id='results_container'>
+       ${queryResultsArray.map((result)=>{
+        return `
+          <div id='kiosk_result_card'>
+
+          <div id='image' >
+          image
+          </div>
+
+          <div  style='display:flex; flex-direction:column; gap:0.3rem'>
+           <div style='display: flex;flex-direction: row; align-items:center; gap:0.7rem'><h3>${result.kioskName}</h3><div id='category_card_2' style="background-color:${categoryColors[result.kioskCategory]}">${result.kioskCategory}</div></div>
+          <div style='display: flex;flex-direction: row;justify-content:flex-start;align-items: center; gap:0.5rem'><span>Sells ${result.kioskSells}</span> <span id='up_down' >${kioskDescriptionUp}</span></div>
+          <div style='display: none'>${result.kioskDescription}</div>
+          <div style='display: flex;flex-direction: row; gap:0.3rem' ><span style='font-size:0.7rem' class="kiosk_contacts_2" >${result.kioskPhone}</span> <span style='font-size:0.7rem'  class="kiosk_contacts_2">${result.kioskEmail}</span></div>
+          </div>
+
+          </div>
+
+        `
+       }).join('')}            
+      
+    
+    </div>
+
+  
+  
+  </div>
+  
+  
+  `
+}
 
 
 
