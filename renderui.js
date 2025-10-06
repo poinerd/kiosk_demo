@@ -80,7 +80,7 @@ function getUserKiosk(){
               </div>
 
           
-              <button id="toggle_theme_container"> CnaZ</button>
+              <button id="toggle_theme_container"></button>
             
              
             </div>
