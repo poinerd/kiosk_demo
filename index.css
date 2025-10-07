@@ -1,6 +1,5 @@
 *{
   /* font-family: "Bricolage Grotesque", sans-serif; */
-    
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -13,7 +12,7 @@
 
 #top_info{
     width: 80%;
-    padding: 4rem
+    padding: 4rem;
 }
 #tunde_card{
     width: 40%; 
@@ -27,8 +26,6 @@
     padding: 1rem;
     border-radius: 4rem;
     width: 60%;
-
-    /* border: 2px solid black; */
     margin-top: 1rem;
    
 }
@@ -56,8 +53,6 @@
        align-items: center;
        flex-direction: column;
        position: relative;
-    
-       
 }
 
 #tunde_image{
@@ -204,35 +199,34 @@ body{
     font-weight: 90;
     padding: 4.8rem;
     gap: 1.1rem;
- 
-    
-       background-color: #f9f9ff;
+    position: relative;
+    background-color: #f9f9ff;
+       /* background-color: #011d35; */
     /* background-color: #BFDFFF;  */
     color: #000000;
     
 }
 
+#handle{
+    position: absolute;
+    top: 435px;
+    left: 385px ;
+}
+
 #coin{
-    /* position: absolute;
-    top: 480px;
-    left: 600px; */
+
     animation: float 2s ease-in-out infinite
 
 }
 
 #coin_2{
-    /* position: absolute;
-    top: 480px;
-    left: 600px; */
+  
     animation: float 2s ease-in-out infinite
 
 }
 
 #bag{
-    /* position: absolute;
-    top: 700px;
-    left:40%; */
-    
+   
       animation: float 2s ease-in-out infinite
 
 }
@@ -555,18 +549,6 @@ h1{
 
 
 
-.kiosk_dark_mode{
-    width:100%;
-    height: 100vh;
-    flex-direction: column;
-    background-color:  #021736;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-
-
-}
 
 
 
@@ -587,22 +569,6 @@ h1{
 
 
 
-.kiosk_head_dark_mode{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-around;
-    padding: 2rem;
-    border: 1px rgb(255, 255, 255) solid;
-    height: 3.3rem;
-    background-color:  #ffffff;
-    color: rgb(0, 0, 0);
-
-}
-
-.kiosk_head_dark_mode .kiosk_options button svg{
-    background-color: black;
-}
 
 
 
@@ -957,6 +923,7 @@ color: white;
     width: 100%;
     gap: 1rem;
     padding: 3rem;
+   
 }
 
 #kiosk_result_card{
@@ -1107,6 +1074,12 @@ color: white;
       animation: float 2s ease-in-out infinite
 }
 
+#handle{
+    position: absolute;
+    top: 57%;
+    left: 10% ;
+}
+
 
 
 
@@ -1132,14 +1105,14 @@ p{
 
 #store_setup_card{
    width: 89%;
-   min-height: 89%;
+   max-height: 80%;
    border-radius: 2rem;
    margin-top: 2rem;
    flex-direction: column;
    align-self: center;
    gap: 1rem;
    padding: 2rem;
-   height: 100%;
+ 
  
 }
 
@@ -1310,6 +1283,7 @@ align-items: center;
      justify-content: center;
      align-items: center;
      padding: 0.3rem;
+     width: 100%;
      margin: 0rem;
      height: 20%;
  

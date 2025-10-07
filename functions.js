@@ -149,8 +149,3 @@ function searchKiosk(query){
   
 }
 
-function getCategoryColor(arri){
-    cat = arri
-    console.log(cat)
-    return Number(categoryColors.cat)
-}

@@ -2,7 +2,6 @@ let kioskDescriptionUp = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" vi
   <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
 </svg>
 `
-
 let kioskDescriptionDown = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
 </svg>` 
@@ -54,8 +53,8 @@ function getStoreSetUpCard(){
 
 function getUserKiosk(){
   
-    return `<div class=${isLightMode? 'kiosk' : 'kiosk_dark_mode'} id="kiosk" >
-            <div class=${isLightMode? 'kiosk_head' : 'kiosk_head_dark_mode'}>
+    return `<div class='kiosk'  id="kiosk" >
+            <div class='kiosk_head'>
             
             <div class="kiosk_id">
             <div style=" display:flex; justify-content:center; align-items:center">

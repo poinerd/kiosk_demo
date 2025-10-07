@@ -8,32 +8,25 @@ const kioskLogo = document.getElementById('kiosk_logo')
 const wholeContainer = document.getElementById('whole_container')
 const searchButton = document.getElementById('search_buttonn')
 const searchField = document.getElementById('search_field')
-
+const start = document.getElementById('start')
 
 searchButton.disabled = true
 loadKioskData(STORAGE_KEY)
 checkProductList()
 
 
-searchField.addEventListener('input', (e)=>{
-  if(searchField.value ===  " "){
 
-       searchButton.classList.add('search_button')
+
+searchField.addEventListener('input', ()=>{
+  if(searchField.value.trim() ===  ""){
+    searchButton.classList.add('search_button')
     searchButton.classList.remove('search_button_enabled')
     searchButton.disabled = true
- 
- 
 
   } else{
-      
-
-    e.preventDefault()
     searchButton.classList.add('search_button_enabled')
     searchButton.classList.remove('search_button')
     searchButton.disabled = false
-  
-
-
   }
 })
 
@@ -47,9 +40,8 @@ wholeContainer.addEventListener('click', (e) => {
        e.preventDefault()
     if(hasUserCreatedKiosk){
         e.preventDefault()
-        displayContentForTime(userExists, 'You already have a kiosk..Tap on my kiosk on the nav bar to access it.', 1000)
-
-      return
+        displayContentForTime(userExists, 'You already have a kiosk..Tap on my kiosk on the nav bar to access it.', 2000)
+        return
 
     }
     if (userEmail.value.trim() != ''){
@@ -65,36 +57,26 @@ wholeContainer.addEventListener('click', (e) => {
   }
 
 if (e.target.id === 'create_kiosk_2') {
-     
           location.reload();
     }
 
-  if (e.target.id === 'search_buttonn') {
-
-
+if (e.target.id === 'search_buttonn') {
       let searchQuery = searchField.value.toLowerCase().trim()
       let result = searchKiosk(searchQuery)
 
-
       if(result.length === 0){
-
         isSearchEmpty = true
-        renderContent(getResultPage(searchQuery, searchKiosk(searchQuery)), appContainer)
-        
-        
+        renderContent(getResultPage(searchQuery, searchKiosk(searchQuery)), appContainer)  
       }
-
       else{
          isSearchEmpty = false
         renderContent(getResultPage(searchQuery, searchKiosk(searchQuery)), appContainer)
-        
       }
 
      
     }
 
 if (e.target.id === 'cancel_store_creation') {
-    
           location.reload();
     }
   
@@ -166,15 +148,12 @@ if(counter === 7 ){
 if (e.target.classList.contains('category')) {
   const categoriesButtons = document.getElementsByClassName('category');
   const btns = Array.from(categoriesButtons);
-
+  console.log(categoriesButtons)
 
   btns.forEach((category) => {
     category.classList.remove('selected');
   });
-
-
   e.target.classList.add('selected');
-
 
   kioskDetails.kioskCategory = e.target.textContent.trim();
   console.log(kioskDetails);
@@ -202,18 +181,7 @@ if (e.target.classList.contains('category')) {
      
   }
 
-     if (e.target.id === 'toggle_theme_container') {
-      const toggleButton = document.getElementById('toggle_theme_container')
-       const kiosk = document.getElementById('kiosk')
-       isLightMode = !isLightMode;
- 
-       toggleButton.innerHTML = isLightMode?lightMode: darkMode
-       kiosk.style.backgroundColor = isLightMode?'#01162b': '#f9f9ff'
-       
-     
-  }
-
-    if (e.target.id === 'my_kiosk') {
+  if (e.target.id === 'my_kiosk') {
           e.preventDefault()
   
       if(hasUserCreatedKiosk == true){
@@ -249,13 +217,11 @@ if (e.target.classList.contains('category')) {
           }, 1000)
         }
         else{
-          displayContentForTime(loginResponse, `${kioskDetails.kioskUserName}, take a look at your password and email again`, 1000, '#FFB3B3')
+          displayContentForTime(loginResponse, `${kioskDetails.kioskUserName}, take a look at your password and email again`, 2000, '#FFB3B3')
           emailField.value = ''
-          passwordField.value = ' '
+          passwordField.value = ''
       
         }
-
-
      
   }
 
@@ -277,9 +243,7 @@ if (e.target.classList.contains('category')) {
     addProductButton.style.display = 'none'
   }
 
-     if (e.target.id === 'go_back_button') {
-   renderContent(getUserKiosk(), appContainer)
-  }
+
 if (e.target.classList.contains("edit_product")) {
     e.preventDefault()
   const card = e.target.closest(".product_card");
@@ -322,8 +286,6 @@ else if (e.target.classList.contains("save_btn")) {
   const newPrice = priceInput.value.trim();
   const newStock = stockInput.value.trim();
  
- 
-
   editAProduct(productId, newName, newPrice, newStock);
 
 
