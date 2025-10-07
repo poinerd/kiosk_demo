@@ -133,7 +133,7 @@ function loadKioskData(key){
       kioskDetails = allKioskData.details
       hasUserCreatedKiosk= allKioskData.isUser
       kioskProducts = allKioskData.products
-      kioskDB = allKioskData.kioskDb
+      kioskDB = allKioskData.kioskDb  
     } catch (e) {
       console.error("Error parsing data from localStorage", e);
    
@@ -143,9 +143,7 @@ function loadKioskData(key){
 
 
 function searchKiosk(query){
-    return kioskDb.filter((kiosk)=> {
+    return kioskDB.filter((kiosk)=> {
     return kiosk.kioskCategory.toLowerCase().includes(query) || kiosk.kioskName.toLowerCase().includes(query) || kiosk.kioskSells.toLowerCase().includes(query)} )
-
-  
 }
 

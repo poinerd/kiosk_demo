@@ -15,8 +15,6 @@ loadKioskData(STORAGE_KEY)
 checkProductList()
 
 
-
-
 searchField.addEventListener('input', ()=>{
   if(searchField.value.trim() ===  ""){
     searchButton.classList.add('search_button')
@@ -81,19 +79,18 @@ if (e.target.id === 'cancel_store_creation') {
     }
   
 if (e.target.id === 'next_question_button') {
-    console.log(counter)
+
     const userStoreCreationInput = document.getElementById('user_store_creation_input')
     const remark = document.getElementById('input_remark')
     
 if(counter === 7 ){
        setKioskDetails(userResponses)
        checkProductList()
-       console.log(isProductlistEmpty)
-       kioskDb.push(kioskDetails)
+       kioskDB = [...kioskDB,kioskDetails]
        hasUserCreatedKiosk = true
        allKioskData.details = kioskDetails
        allKioskData.isUser = hasUserCreatedKiosk
-       allKioskData.kioskDb = kioskDb
+       allKioskData.kioskDb = kioskDB
        saveKioskData(STORAGE_KEY, allKioskData)
       
        renderContent(getUserKiosk(), appContainer)     
@@ -105,7 +102,7 @@ if(counter === 7 ){
  
  
     
-    if(counter === 3 && kioskDetails.kioskCategory==='' ){
+    if(counter === 3 && kioskDetails.kioskCategory ==='' ){
         displayContentForTime(remark, "You must select a category", 1000)
         return 
 
@@ -130,7 +127,6 @@ if(counter === 7 ){
     
     else{
     userResponses.push(userStoreCreationInput.value)
-    console.log(userResponses)
     goToNextQuestion()
 
     }
@@ -148,7 +144,7 @@ if(counter === 7 ){
 if (e.target.classList.contains('category')) {
   const categoriesButtons = document.getElementsByClassName('category');
   const btns = Array.from(categoriesButtons);
-  console.log(categoriesButtons)
+  
 
   btns.forEach((category) => {
     category.classList.remove('selected');
@@ -156,8 +152,7 @@ if (e.target.classList.contains('category')) {
   e.target.classList.add('selected');
 
   kioskDetails.kioskCategory = e.target.textContent.trim();
-  console.log(kioskDetails);
-  console.log(e.target.textContent.trim());
+
 }
 
 
@@ -196,7 +191,6 @@ if (e.target.classList.contains('category')) {
 
     if (e.target.id === 'delete_product') {
     const productId = e.target.getAttribute("product_id");
-    console.log('this product has an id of', productId)
     deleteAProduct(productId)
 
      
@@ -275,8 +269,6 @@ else if (e.target.classList.contains("save_btn")) {
   e.preventDefault()
 
   const card = e.target.closest(".product_card");
-
-  console.log(card)
   const nameInput = card.querySelector(".edit-name");
   const priceInput = card.querySelector(".edit-price");
   const stockInput = card.querySelector(".edit-stock");
@@ -287,10 +279,6 @@ else if (e.target.classList.contains("save_btn")) {
   const newStock = stockInput.value.trim();
  
   editAProduct(productId, newName, newPrice, newStock);
-
-
-
-
 }
 
 

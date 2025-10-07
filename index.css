@@ -1075,9 +1075,8 @@ color: white;
 }
 
 #handle{
-    position: absolute;
-    top: 57%;
-    left: 10% ;
+
+  display: none;
 }
 
 

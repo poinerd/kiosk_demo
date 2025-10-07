@@ -142,7 +142,7 @@ const storeSetUpQuestions = [
 
 
 
-let kioskDb = [
+let kioskDB = [
   {
     kioskName: "Jabari Store",
     kioskCategory: "technology",
@@ -554,13 +554,11 @@ let kioskDb = [
 ]
 
 
-
-
 let allKioskData = {
   details : kioskDetails,
   products : kioskProducts,
   isUser : hasUserCreatedKiosk,
-  kioskDb : kioskDb
+  kioskDb : kioskDB
 }
 
 
@@ -570,8 +568,6 @@ let categoryColors ={
   Food : '#FFFADC',
   technology: '#E2FFDC',
   Electronics: '#FADCFF',
-  others: '#DDDCDC'
-
-     
+  others: '#DDDCDC'  
 }
 
